@@ -66,3 +66,6 @@ app/runtime/*
 *.tmp
 *.partial
 *.partial.jsonl
+
+# release model
+release/

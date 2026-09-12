@@ -7,8 +7,10 @@
   <img src="https://img.shields.io/badge/Training-LoRA%20SFT%20%2B%20GRPO-EA580C" alt="LoRA SFT + GRPO" />
   <img src="https://img.shields.io/badge/Serving-vLLM%20%2B%20FastAPI%20%2B%20React-0EA5E9" alt="vLLM FastAPI React" />
   <img src="https://img.shields.io/badge/License-MIT-22C55E" alt="MIT License" />
+  <a href="https://huggingface.co/collections/Capricornus1229/verisql-rl-adapter-family">
+  <img src="https://img.shields.io/badge/Hugging%20Face-4%20LoRA%20Adapters-FFD21E" alt="Hugging Face Adapter Family" />
+  </a>
 </p>
-
 VeriSQL-RL 是一套基于 **Qwen3-8B、BIRD-SQL 与 SQLite** 的完整大模型后训练与在线部署项目。系统从原始数据库和 Text-to-SQL 标注出发，打通数据准备、Schema 建模、Gold SQL 执行审计、completion-only LoRA SFT、在线执行奖励 GRPO、数据库值 Grounding、Teacher Reasoning、困难样本筛选、pass@8 执行投票，以及 vLLM + FastAPI + React 服务化部署。
 
 项目保留两条可复现流水线：
@@ -52,6 +54,21 @@ VeriSQL Studio 提供两种在线模式：
 
 - [V1 结果汇总](pipelines/v1/results/summary.json)
 - [V2 结果汇总](pipelines/v2/results/summary.json)
+
+## 模型发布
+
+四个 Qwen3-8B LoRA Adapter 已发布至 Hugging Face，并统一收录于
+[VeriSQL-RL Adapter Family](https://huggingface.co/collections/Capricornus1229/verisql-rl-adapter-family)。
+
+| Adapter | 训练阶段 | BIRD Dev EX | Hugging Face |
+|---|---|---:|---|
+| V1 SFT | completion-only LoRA SFT | 49.74 | [verisql-qwen3-8b-v1-sft-lora](https://huggingface.co/Capricornus1229/verisql-qwen3-8b-v1-sft-lora) |
+| V1 GRPO | Binary execution-reward GRPO | 52.09 | [verisql-qwen3-8b-v1-grpo-lora](https://huggingface.co/Capricornus1229/verisql-qwen3-8b-v1-grpo-lora) |
+| V2 SFT | Grounding + Teacher Reasoning SFT | 53.98 | [verisql-qwen3-8b-v2-sft-lora](https://huggingface.co/Capricornus1229/verisql-qwen3-8b-v2-sft-lora) |
+| V2 GRPO | Exact-only GRPO | **56.13** | [verisql-qwen3-8b-v2-grpo-lora](https://huggingface.co/Capricornus1229/verisql-qwen3-8b-v2-grpo-lora) |
+
+`61.15` 是最终 V2 GRPO Adapter 配合 Grounding、SQLite 执行和
+pass@8 Execution Vote 获得的系统指标，不是单个 Adapter 的单次生成指标。
 
 ## 在线服务性能
 
@@ -235,13 +252,20 @@ modelscope download \
 
 ### 最终 V2 LoRA Adapter
 
-最终服务加载：
+最终部署使用公开的
+[V2 Exact-GRPO Adapter](https://huggingface.co/Capricornus1229/verisql-qwen3-8b-v2-grpo-lora)。
 
-```text
-pipelines/v2/runs/grpo/best_adapter/
+下载至项目约定路径：
+
+```bash
+python -m pip install -U huggingface_hub
+
+hf download \
+  Capricornus1229/verisql-qwen3-8b-v2-grpo-lora \
+  --local-dir pipelines/v2/runs/grpo/best_adapter
 ```
-
-该目录由 V2 流水线生成，也可以从独立发布的 Hugging Face 模型仓库恢复。源码仓库不包含 Adapter 权重。
+从头运行 V2 流水线时，该目录也会由训练阶段生成。本仓库不保存
+Adapter 权重，四个公开 Adapter 统一收录于 [VeriSQL-RL Adapter Family](https://huggingface.co/collections/Capricornus1229/verisql-rl-adapter-family)。
 
 ## BIRD 数据准备
 
@@ -389,7 +413,7 @@ ssh -p <SSH端口> -N -L 8000:127.0.0.1:8000 \
 源码仓库不包含：
 
 - Qwen 基础模型和 Teacher 权重；
-- LoRA Adapter、训练 Checkpoint、Optimizer/Scheduler 状态；
+- LoRA Adapter、训练 Checkpoint、Optimizer/Scheduler 状态；四个公开 Adapter 托管于 Hugging Face Model Hub；
 - BIRD 原始标注和 SQLite 数据库；
 - Teacher rationale、GRPO rollout、逐题预测、逐题评分和运行缓存。
 

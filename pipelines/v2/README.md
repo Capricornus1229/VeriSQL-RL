@@ -61,6 +61,31 @@ V2 SFT 53.98
 - [Screen 统计](results/screen/summary.json)
 - [GRPO 训练与选择](results/grpo/summary.json)
 
+## 已发布 Adapter
+
+V2 的 SFT 与 Exact-GRPO Adapter 已发布至 Hugging Face：
+
+| Adapter | 单次 greedy EX | 模型仓库 |
+|---|---:|---|
+| V2 Grounded Reasoning SFT | 53.98 | [Capricornus1229/verisql-qwen3-8b-v2-sft-lora](https://huggingface.co/Capricornus1229/verisql-qwen3-8b-v2-sft-lora) |
+| V2 Exact-GRPO | **56.13** | [Capricornus1229/verisql-qwen3-8b-v2-grpo-lora](https://huggingface.co/Capricornus1229/verisql-qwen3-8b-v2-grpo-lora) |
+
+恢复至 V2 默认产物路径：
+
+```bash
+hf download \
+  Capricornus1229/verisql-qwen3-8b-v2-sft-lora \
+  --local-dir pipelines/v2/runs/sft/best_adapter
+
+hf download \
+  Capricornus1229/verisql-qwen3-8b-v2-grpo-lora \
+  --local-dir pipelines/v2/runs/grpo/best_adapter
+```
+四个项目 Adapter 统一收录于 [VeriSQL-RL Adapter Family](https://huggingface.co/collections/Capricornus1229/verisql-rl-adapter-family)。
+
+V2 GRPO 的 `61.15` EX 依赖项目中的 Grounding、SQLite 只读执行和
+pass@8 Execution Vote；单独加载 Adapter 的单次 greedy 指标为 `56.13`。
+
 ## 流水线结构
 
 ```mermaid
@@ -494,6 +519,13 @@ pipelines/v2/results/
 model/Qwen3-8B
 +
 pipelines/v2/runs/grpo/best_adapter
+```
+
+公开 Adapter 可直接恢复到该路径：
+```bash
+hf download \
+  Capricornus1229/verisql-qwen3-8b-v2-grpo-lora \
+  --local-dir pipelines/v2/runs/grpo/best_adapter
 ```
 
 部署复用 V2 的 Schema 渲染、Grounding 检索、reasoning/SQL 解析、SQLite 只读执行和 pass@8 投票。线上服务不读取 Teacher、训练 Gold SQL、训练 Checkpoint 或 BIRD Evaluator。

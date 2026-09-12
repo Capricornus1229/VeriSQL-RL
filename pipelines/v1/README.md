@@ -39,6 +39,28 @@ Zero-shot 44.07
 - [GRPO 指标](results/grpo/metrics.json)
 - [GRPO 训练摘要](results/grpo/training_summary.json)
 
+## 已发布 Adapter
+
+V1 的两个 LoRA Adapter 已发布至 Hugging Face：
+
+| Adapter | Dev EX | 模型仓库 |
+|---|---:|---|
+| V1 SFT | 49.74 | [Capricornus1229/verisql-qwen3-8b-v1-sft-lora](https://huggingface.co/Capricornus1229/verisql-qwen3-8b-v1-sft-lora) |
+| V1 GRPO | 52.09 | [Capricornus1229/verisql-qwen3-8b-v1-grpo-lora](https://huggingface.co/Capricornus1229/verisql-qwen3-8b-v1-grpo-lora) |
+
+恢复至 V1 默认产物路径：
+
+```bash
+hf download \
+  Capricornus1229/verisql-qwen3-8b-v1-sft-lora \
+  --local-dir pipelines/v1/runs/sft/model/best_adapter
+
+hf download \
+  Capricornus1229/verisql-qwen3-8b-v1-grpo-lora \
+  --local-dir pipelines/v1/runs/grpo/model/final_adapter
+```
+两个模型也收录于 [Hugging Face Adapter Family](https://huggingface.co/collections/Capricornus1229/verisql-rl-adapter-family)。
+
 ## 流水线结构
 
 ```mermaid
@@ -354,7 +376,10 @@ pipelines/v1/artifacts/
 pipelines/v1/runs/
 ```
 
-保存完整本地实验产物，包括 Adapter、Checkpoint、逐样本预测、逐样本评分和训练日志。该目录不进入源码仓库。
+保存完整本地实验产物，包括 Adapter、Checkpoint、逐样本预测、逐样本评分和训练日志。
+
+源码仓库不保存 Adapter 权重；V1 SFT 与 V1 GRPO 的公开权重可从上方
+Hugging Face 仓库恢复到对应的 `runs/` 路径。
 
 ```text
 pipelines/v1/results/

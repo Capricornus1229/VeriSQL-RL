@@ -4,6 +4,11 @@
 
 部署代码与 `pipelines/v1/`、`pipelines/v2/` 的训练代码分离，不修改训练权重、Reward、Checkpoint 选择或评测结果。
 
+在线服务使用公开的
+[Capricornus1229/verisql-qwen3-8b-v2-grpo-lora](https://huggingface.co/Capricornus1229/verisql-qwen3-8b-v2-grpo-lora)；
+完整 Adapter 系列见
+[VeriSQL-RL Adapter Family](https://huggingface.co/collections/Capricornus1229/verisql-rl-adapter-family)。
+
 ## 系统架构
 
 ```mermaid
@@ -96,6 +101,16 @@ data/raw/databases/train/
 data/raw/databases/dev/
 pipelines/v2/artifacts/grounding/value_index.sqlite
 ```
+最终 Adapter 可直接下载至部署约定路径：
+
+```bash
+python -m pip install -U huggingface_hub
+
+hf download \
+  Capricornus1229/verisql-qwen3-8b-v2-grpo-lora \
+  --local-dir pipelines/v2/runs/grpo/best_adapter
+```
+该 Adapter 的单次 greedy EX 为 `56.13`；VeriSQL Studio Accurate 模式在此基础上加入Grounding、八候选生成、SQLite 执行和结果投票，系统 EX 为 `61.15`。
 
 线上服务不使用：
 
@@ -595,7 +610,7 @@ app/results/benchmark_<mode>_c<concurrency>.json
 后端单元测试不加载真实大模型：
 
 ```bash
-pytest -q app/tests
+python -m pytest -q app/tests
 ```
 
 前端生产构建：
@@ -608,19 +623,23 @@ bash app/scripts/build_frontend.sh
 
 ### Adapter 不存在
 
-检查：
+从 Hugging Face 恢复最终 V2 Adapter：
 
-```text
-pipelines/v2/runs/grpo/best_adapter/
+```bash
+hf download \
+  Capricornus1229/verisql-qwen3-8b-v2-grpo-lora \
+  --local-dir pipelines/v2/runs/grpo/best_adapter
 ```
 
-目录应包含：
+下载后确认目录中至少包含：
+- adapter_model.safetensors
+- adapter_config.json
+- tokenizer_config.json 或 tokenizer.json
+- Chat Template 相关文件
 
-```text
-adapter_model.safetensors
-adapter_config.json
-tokenizer_config.json 或 tokenizer.json
-Chat Template 相关文件
+随后重新启动 vLLM：
+```bash
+bash app/scripts/serve_model.sh
 ```
 
 ### `/v1/models` 中没有 `verisql-v2`
