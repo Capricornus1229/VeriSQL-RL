@@ -1,0 +1,15 @@
+{
+  "run_name": "qwen3_8b_bird_grpo",
+  "dataset": "bird_sql_dev_20251106",
+  "total": 1534,
+  "overall_ex": 52.09,
+  "simple_ex": 62.44,
+  "moderate_ex": 45.6,
+  "challenging_ex": 25.97,
+  "executable_rate": 90.74,
+  "format_compliance_rate": 99.87,
+  "timeout_count": 2,
+  "syntax_error_count": 35,
+  "missing_table_count": 0,
+  "missing_column_count": 101
+}

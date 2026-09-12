@@ -1,0 +1,42 @@
+[
+  {
+    "db_id": "financial",
+    "question": "The average unemployment ratio of 1995 and 1996, which one has higher percentage?",
+    "evidence": "A12 refers to unemployment rate 1995; A13 refers to unemployment rate 1996"
+  },
+  {
+    "db_id": "toxicology",
+    "question": "How many triple type bonds are there?",
+    "evidence": "triple type bonds refers to bond_type = '#'"
+  },
+  {
+    "db_id": "card_games",
+    "question": "List the card names with value that cost more converted mana.",
+    "evidence": "more converted mana refers to MAX(ConvertedManaCost)"
+  },
+  {
+    "db_id": "codebase_community",
+    "question": "Please list the display names of all the users whose accounts were created in the year 2011.",
+    "evidence": ""
+  },
+  {
+    "db_id": "superhero",
+    "question": "Please list all the superpowers of 3-D Man.",
+    "evidence": "3-D Man refers to superhero_name = '3-D Man'; superpowers refers to power_name"
+  },
+  {
+    "db_id": "formula_1",
+    "question": "What is the surname of the driver with the best lap time in race number 19 in the second qualifying period?",
+    "evidence": "race number refers to raceId; second qualifying period refers to q2; best lap time refers to MIN(q2)"
+  },
+  {
+    "db_id": "student_club",
+    "question": "What's Angela Sanders's major?",
+    "evidence": "major refers to major_name"
+  },
+  {
+    "db_id": "debit_card_specializing",
+    "question": "How many gas stations in CZE have Premium gas?",
+    "evidence": ""
+  }
+]

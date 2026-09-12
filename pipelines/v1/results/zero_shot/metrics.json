@@ -1,0 +1,15 @@
+{
+    "run_name": "qwen3_8b_zero_shot",
+    "dataset": "bird_sql_dev_20251106",
+    "total": 1534,
+    "overall_ex": 44.07,
+    "simple_ex": 56.05,
+    "moderate_ex": 34.09,
+    "challenging_ex": 18.61,
+    "executable_rate": 83.9,
+    "format_compliance_rate": 94.52,
+    "timeout_count": 1,
+    "syntax_error_count": 49,
+    "missing_table_count": 1,
+    "missing_column_count": 154
+}

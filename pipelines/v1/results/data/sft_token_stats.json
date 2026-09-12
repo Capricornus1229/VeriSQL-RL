@@ -1,0 +1,478 @@
+{
+    "model_id": "Qwen/Qwen3-8B",
+    "tokenizer_source": "local",
+    "enable_thinking": false,
+    "truncation_mode": "keep_start",
+    "splits": {
+        "sft_train": {
+            "sample_count": 6013,
+            "prompt_tokens": {
+                "p50": 742,
+                "p90": 1787,
+                "p95": 6280,
+                "p99": 6309,
+                "max": 6381
+            },
+            "completion_tokens": {
+                "p50": 55,
+                "p90": 86,
+                "p95": 97,
+                "p99": 125,
+                "max": 300
+            },
+            "total_tokens": {
+                "p50": 807,
+                "p90": 1851,
+                "p95": 6320,
+                "p99": 6379,
+                "max": 6471
+            },
+            "over_4096": 383,
+            "over_8192": 0,
+            "over_12288": 0,
+            "over_16384": 0,
+            "longest_samples": [
+                {
+                    "split": "sft_train",
+                    "sample_id": "train_004837",
+                    "db_id": "works_cycles",
+                    "prompt_tokens": 6381,
+                    "completion_tokens": 90,
+                    "total_tokens": 6471
+                },
+                {
+                    "split": "sft_train",
+                    "sample_id": "train_004840",
+                    "db_id": "works_cycles",
+                    "prompt_tokens": 6372,
+                    "completion_tokens": 91,
+                    "total_tokens": 6463
+                },
+                {
+                    "split": "sft_train",
+                    "sample_id": "train_005676",
+                    "db_id": "works_cycles",
+                    "prompt_tokens": 6359,
+                    "completion_tokens": 98,
+                    "total_tokens": 6457
+                },
+                {
+                    "split": "sft_train",
+                    "sample_id": "train_002905",
+                    "db_id": "works_cycles",
+                    "prompt_tokens": 6342,
+                    "completion_tokens": 113,
+                    "total_tokens": 6455
+                },
+                {
+                    "split": "sft_train",
+                    "sample_id": "train_005686",
+                    "db_id": "works_cycles",
+                    "prompt_tokens": 6307,
+                    "completion_tokens": 143,
+                    "total_tokens": 6450
+                },
+                {
+                    "split": "sft_train",
+                    "sample_id": "train_002737",
+                    "db_id": "works_cycles",
+                    "prompt_tokens": 6374,
+                    "completion_tokens": 71,
+                    "total_tokens": 6445
+                },
+                {
+                    "split": "sft_train",
+                    "sample_id": "train_002826",
+                    "db_id": "works_cycles",
+                    "prompt_tokens": 6343,
+                    "completion_tokens": 96,
+                    "total_tokens": 6439
+                },
+                {
+                    "split": "sft_train",
+                    "sample_id": "train_004862",
+                    "db_id": "works_cycles",
+                    "prompt_tokens": 6347,
+                    "completion_tokens": 87,
+                    "total_tokens": 6434
+                },
+                {
+                    "split": "sft_train",
+                    "sample_id": "train_002781",
+                    "db_id": "works_cycles",
+                    "prompt_tokens": 6352,
+                    "completion_tokens": 77,
+                    "total_tokens": 6429
+                },
+                {
+                    "split": "sft_train",
+                    "sample_id": "train_004876",
+                    "db_id": "works_cycles",
+                    "prompt_tokens": 6343,
+                    "completion_tokens": 85,
+                    "total_tokens": 6428
+                }
+            ]
+        },
+        "sft_val": {
+            "sample_count": 588,
+            "prompt_tokens": {
+                "p50": 556,
+                "p90": 1023,
+                "p95": 1039,
+                "p99": 1097,
+                "max": 1108
+            },
+            "completion_tokens": {
+                "p50": 53,
+                "p90": 78,
+                "p95": 88,
+                "p99": 130,
+                "max": 220
+            },
+            "total_tokens": {
+                "p50": 600,
+                "p90": 1065,
+                "p95": 1088,
+                "p99": 1166,
+                "max": 1195
+            },
+            "over_4096": 0,
+            "over_8192": 0,
+            "over_12288": 0,
+            "over_16384": 0,
+            "longest_samples": [
+                {
+                    "split": "sft_val",
+                    "sample_id": "train_006130",
+                    "db_id": "donor",
+                    "prompt_tokens": 1065,
+                    "completion_tokens": 130,
+                    "total_tokens": 1195
+                },
+                {
+                    "split": "sft_val",
+                    "sample_id": "train_006092",
+                    "db_id": "donor",
+                    "prompt_tokens": 1104,
+                    "completion_tokens": 88,
+                    "total_tokens": 1192
+                },
+                {
+                    "split": "sft_val",
+                    "sample_id": "train_006093",
+                    "db_id": "donor",
+                    "prompt_tokens": 1108,
+                    "completion_tokens": 83,
+                    "total_tokens": 1191
+                },
+                {
+                    "split": "sft_val",
+                    "sample_id": "train_006121",
+                    "db_id": "donor",
+                    "prompt_tokens": 1089,
+                    "completion_tokens": 102,
+                    "total_tokens": 1191
+                },
+                {
+                    "split": "sft_val",
+                    "sample_id": "train_006088",
+                    "db_id": "donor",
+                    "prompt_tokens": 1103,
+                    "completion_tokens": 65,
+                    "total_tokens": 1168
+                },
+                {
+                    "split": "sft_val",
+                    "sample_id": "train_006094",
+                    "db_id": "donor",
+                    "prompt_tokens": 1097,
+                    "completion_tokens": 69,
+                    "total_tokens": 1166
+                },
+                {
+                    "split": "sft_val",
+                    "sample_id": "train_006091",
+                    "db_id": "donor",
+                    "prompt_tokens": 1094,
+                    "completion_tokens": 70,
+                    "total_tokens": 1164
+                },
+                {
+                    "split": "sft_val",
+                    "sample_id": "train_006089",
+                    "db_id": "donor",
+                    "prompt_tokens": 1100,
+                    "completion_tokens": 57,
+                    "total_tokens": 1157
+                },
+                {
+                    "split": "sft_val",
+                    "sample_id": "train_006087",
+                    "db_id": "donor",
+                    "prompt_tokens": 1099,
+                    "completion_tokens": 50,
+                    "total_tokens": 1149
+                },
+                {
+                    "split": "sft_val",
+                    "sample_id": "train_006086",
+                    "db_id": "donor",
+                    "prompt_tokens": 1097,
+                    "completion_tokens": 48,
+                    "total_tokens": 1145
+                }
+            ]
+        },
+        "dev_eval": {
+            "sample_count": 1534,
+            "prompt_tokens": {
+                "p50": 953,
+                "p90": 1314,
+                "p95": 2535,
+                "p99": 2574,
+                "max": 2619
+            },
+            "completion_tokens": {
+                "p50": 0,
+                "p90": 0,
+                "p95": 0,
+                "p99": 0,
+                "max": 0
+            },
+            "total_tokens": {
+                "p50": 953,
+                "p90": 1314,
+                "p95": 2535,
+                "p99": 2574,
+                "max": 2619
+            },
+            "over_4096": 0,
+            "over_8192": 0,
+            "over_12288": 0,
+            "over_16384": 0,
+            "longest_samples": [
+                {
+                    "split": "dev_eval",
+                    "question_id": 1071,
+                    "db_id": "european_football_2",
+                    "prompt_tokens": 2619,
+                    "completion_tokens": 0,
+                    "total_tokens": 2619
+                },
+                {
+                    "split": "dev_eval",
+                    "question_id": 1041,
+                    "db_id": "european_football_2",
+                    "prompt_tokens": 2618,
+                    "completion_tokens": 0,
+                    "total_tokens": 2618
+                },
+                {
+                    "split": "dev_eval",
+                    "question_id": 1114,
+                    "db_id": "european_football_2",
+                    "prompt_tokens": 2616,
+                    "completion_tokens": 0,
+                    "total_tokens": 2616
+                },
+                {
+                    "split": "dev_eval",
+                    "question_id": 1076,
+                    "db_id": "european_football_2",
+                    "prompt_tokens": 2608,
+                    "completion_tokens": 0,
+                    "total_tokens": 2608
+                },
+                {
+                    "split": "dev_eval",
+                    "question_id": 1037,
+                    "db_id": "european_football_2",
+                    "prompt_tokens": 2603,
+                    "completion_tokens": 0,
+                    "total_tokens": 2603
+                },
+                {
+                    "split": "dev_eval",
+                    "question_id": 1139,
+                    "db_id": "european_football_2",
+                    "prompt_tokens": 2601,
+                    "completion_tokens": 0,
+                    "total_tokens": 2601
+                },
+                {
+                    "split": "dev_eval",
+                    "question_id": 1042,
+                    "db_id": "european_football_2",
+                    "prompt_tokens": 2596,
+                    "completion_tokens": 0,
+                    "total_tokens": 2596
+                },
+                {
+                    "split": "dev_eval",
+                    "question_id": 1115,
+                    "db_id": "european_football_2",
+                    "prompt_tokens": 2594,
+                    "completion_tokens": 0,
+                    "total_tokens": 2594
+                },
+                {
+                    "split": "dev_eval",
+                    "question_id": 1031,
+                    "db_id": "european_football_2",
+                    "prompt_tokens": 2593,
+                    "completion_tokens": 0,
+                    "total_tokens": 2593
+                },
+                {
+                    "split": "dev_eval",
+                    "question_id": 1033,
+                    "db_id": "european_football_2",
+                    "prompt_tokens": 2593,
+                    "completion_tokens": 0,
+                    "total_tokens": 2593
+                }
+            ]
+        }
+    },
+    "candidate_max_lengths": {
+        "4096": {
+            "sft_train": {
+                "truncated_sample_count": 383,
+                "prompt_truncated_count": 383,
+                "completion_truncated_count": 383,
+                "zero_supervised_token_count": 383,
+                "retained_supervised_tokens": {
+                    "min": 0,
+                    "p50": 54,
+                    "p90": 85,
+                    "p95": 96,
+                    "p99": 124,
+                    "max": 300,
+                    "total": 321025
+                },
+                "retained_supervised_token_rate": 0.941834
+            },
+            "sft_val": {
+                "truncated_sample_count": 0,
+                "prompt_truncated_count": 0,
+                "completion_truncated_count": 0,
+                "zero_supervised_token_count": 0,
+                "retained_supervised_tokens": {
+                    "min": 15,
+                    "p50": 53,
+                    "p90": 78,
+                    "p95": 88,
+                    "p99": 130,
+                    "max": 220,
+                    "total": 31597
+                },
+                "retained_supervised_token_rate": 1.0
+            }
+        },
+        "8192": {
+            "sft_train": {
+                "truncated_sample_count": 0,
+                "prompt_truncated_count": 0,
+                "completion_truncated_count": 0,
+                "zero_supervised_token_count": 0,
+                "retained_supervised_tokens": {
+                    "min": 11,
+                    "p50": 55,
+                    "p90": 86,
+                    "p95": 97,
+                    "p99": 125,
+                    "max": 300,
+                    "total": 340851
+                },
+                "retained_supervised_token_rate": 1.0
+            },
+            "sft_val": {
+                "truncated_sample_count": 0,
+                "prompt_truncated_count": 0,
+                "completion_truncated_count": 0,
+                "zero_supervised_token_count": 0,
+                "retained_supervised_tokens": {
+                    "min": 15,
+                    "p50": 53,
+                    "p90": 78,
+                    "p95": 88,
+                    "p99": 130,
+                    "max": 220,
+                    "total": 31597
+                },
+                "retained_supervised_token_rate": 1.0
+            }
+        },
+        "12288": {
+            "sft_train": {
+                "truncated_sample_count": 0,
+                "prompt_truncated_count": 0,
+                "completion_truncated_count": 0,
+                "zero_supervised_token_count": 0,
+                "retained_supervised_tokens": {
+                    "min": 11,
+                    "p50": 55,
+                    "p90": 86,
+                    "p95": 97,
+                    "p99": 125,
+                    "max": 300,
+                    "total": 340851
+                },
+                "retained_supervised_token_rate": 1.0
+            },
+            "sft_val": {
+                "truncated_sample_count": 0,
+                "prompt_truncated_count": 0,
+                "completion_truncated_count": 0,
+                "zero_supervised_token_count": 0,
+                "retained_supervised_tokens": {
+                    "min": 15,
+                    "p50": 53,
+                    "p90": 78,
+                    "p95": 88,
+                    "p99": 130,
+                    "max": 220,
+                    "total": 31597
+                },
+                "retained_supervised_token_rate": 1.0
+            }
+        },
+        "16384": {
+            "sft_train": {
+                "truncated_sample_count": 0,
+                "prompt_truncated_count": 0,
+                "completion_truncated_count": 0,
+                "zero_supervised_token_count": 0,
+                "retained_supervised_tokens": {
+                    "min": 11,
+                    "p50": 55,
+                    "p90": 86,
+                    "p95": 97,
+                    "p99": 125,
+                    "max": 300,
+                    "total": 340851
+                },
+                "retained_supervised_token_rate": 1.0
+            },
+            "sft_val": {
+                "truncated_sample_count": 0,
+                "prompt_truncated_count": 0,
+                "completion_truncated_count": 0,
+                "zero_supervised_token_count": 0,
+                "retained_supervised_tokens": {
+                    "min": 15,
+                    "p50": 53,
+                    "p90": 78,
+                    "p95": 88,
+                    "p99": 130,
+                    "max": 220,
+                    "total": 31597
+                },
+                "retained_supervised_token_rate": 1.0
+            }
+        }
+    },
+    "minimum_zero_supervision_safe_max_length": 8192,
+    "minimum_no_truncation_max_length": 8192
+}

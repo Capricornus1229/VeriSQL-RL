@@ -1,0 +1,1 @@
+import type {ReactNode} from 'react'; export default function StatusPill({children,good=false}:{children:ReactNode;good?:boolean}){return <span className="status-item"><i className={good?'ok':''}/>{children}</span>}

@@ -1,0 +1,53 @@
+{
+  "value_index": {
+    "database_count": 80,
+    "column_count": 4337,
+    "value_column_count": 2321,
+    "scanned_value_count": 3549507,
+    "indexed_unique_value_count": 406616
+  },
+  "splits": {
+    "train": {
+      "sample_count": 6013,
+      "database_count": 62,
+      "samples_with_grounding": 6012,
+      "samples_without_grounding": 1,
+      "retrieved_column_count": 45743,
+      "matched_value_count": 34123,
+      "maximum_columns_per_sample": 8,
+      "maximum_values_per_sample": 24
+    },
+    "validation": {
+      "sample_count": 588,
+      "database_count": 7,
+      "samples_with_grounding": 588,
+      "samples_without_grounding": 0,
+      "retrieved_column_count": 4471,
+      "matched_value_count": 4176,
+      "maximum_columns_per_sample": 8,
+      "maximum_values_per_sample": 24
+    },
+    "dev": {
+      "sample_count": 1534,
+      "database_count": 11,
+      "samples_with_grounding": 1534,
+      "samples_without_grounding": 0,
+      "retrieved_column_count": 11768,
+      "matched_value_count": 8993,
+      "maximum_columns_per_sample": 8,
+      "maximum_values_per_sample": 24
+    }
+  },
+  "train_validation_database_overlap": 0,
+  "sft_dev_database_overlap": 0,
+  "reward_manifest": {
+    "sample_count": 6013,
+    "eligible_count": 5939,
+    "excluded_count": 74,
+    "exclusion_reasons": {
+      "gold_row_limit": 71,
+      "gold_timeout_limit": 1,
+      "timeout": 2
+    }
+  }
+}

@@ -1,0 +1,59 @@
+run:
+  run_name: qwen3_8b_bird_sft
+  seed: 42
+  expected_num_processes: 2
+  output_dir: pipelines/v1/runs/sft/model
+  report_dir: pipelines/v1/runs/sft
+
+model:
+  model_path: model/Qwen3-8B
+  tokenizer_path: model/Qwen3-8B
+  dtype: bfloat16
+  attention_implementation: sdpa
+  enable_thinking: false
+  use_cache: false
+  gradient_checkpointing: true
+
+data:
+  train_path: pipelines/v1/artifacts/data/sft_train.jsonl
+  validation_path: pipelines/v1/artifacts/data/sft_val.jsonl
+  max_length: 8192
+  padding_side: right
+  train_batch_size_per_device: 1
+  validation_batch_size_per_device: 1
+  dataloader_num_workers: 0
+  pin_memory: true
+
+lora:
+  r: 32
+  lora_alpha: 64
+  lora_dropout: 0.05
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+optimizer:
+  learning_rate: 5.0e-5
+  weight_decay: 0.0
+  beta1: 0.9
+  beta2: 0.999
+  epsilon: 1.0e-8
+  max_grad_norm: 1.0
+
+training:
+  num_epochs: 2
+  gradient_accumulation_steps: 8
+  scheduler_type: cosine
+  warmup_ratio: 0.03
+  log_every_steps: 10
+  evaluate_each_epoch: true
+  keep_last_checkpoints: 2
+  smoke_optimizer_steps: 20
+  smoke_validation_batches: 32

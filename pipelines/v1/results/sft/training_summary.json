@@ -1,0 +1,46 @@
+{
+  "run_name": "qwen3_8b_bird_sft",
+  "status": "completed",
+  "mode": "train",
+  "base_model": "model/Qwen3-8B",
+  "train_samples": 6013,
+  "validation_samples": 588,
+  "num_processes": 2,
+  "precision": "bf16",
+  "max_length": 8192,
+  "lora_config": {
+    "r": 32,
+    "lora_alpha": 64,
+    "lora_dropout": 0.05,
+    "bias": "none",
+    "task_type": "CAUSAL_LM",
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "total_parameters": 8278029312,
+  "trainable_parameters": 87293952,
+  "trainable_ratio": 1.0545257658541618,
+  "lora_parameter_tensors": 504,
+  "micro_batch_size": 1,
+  "gradient_accumulation_steps": 8,
+  "effective_batch_size": 16,
+  "num_epochs": 2,
+  "optimizer_steps": 752,
+  "final_train_loss": 0.09804437176172241,
+  "best_validation_loss": 0.20307882276771044,
+  "best_epoch": 1,
+  "best_adapter_path": "pipelines/v1/runs/sft/model/best_adapter",
+  "last_adapter_path": "pipelines/v1/runs/sft/model/last_adapter",
+  "training_duration_seconds": 3515.8133859529626,
+  "peak_memory_gb_per_process": [
+    21.353,
+    21.338
+  ]
+}

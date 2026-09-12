@@ -1,0 +1,152 @@
+{
+  "training": {
+    "source_prompt_count": 2628,
+    "duplicated_prompt": null,
+    "processed_groups": 2628,
+    "exact_mixed_groups": 1685,
+    "all_wrong_groups": 570,
+    "all_correct_groups": 373,
+    "insufficient_valid_groups": 0,
+    "truncated_candidate_count": 1,
+    "optimizer_steps": 1135,
+    "prompt_cursor": 1314,
+    "duration_seconds": 34127.062,
+    "final_checkpoint": "pipelines/v2/runs/grpo/final_checkpoint"
+  },
+  "selection": {
+    "selected_optimizer_step": 800,
+    "best_adapter_path": "pipelines/v2/runs/grpo/best_adapter",
+    "selection_metric": "pass_at_8_execution_vote",
+    "greedy": {
+      "sample_count": 588,
+      "correct_count": 417,
+      "official_ex": 70.92,
+      "executable_rate": 95.75
+    },
+    "vote": {
+      "sample_count": 588,
+      "correct_count": 447,
+      "official_ex": 76.02,
+      "executable_rate": 99.32
+    },
+    "sft_baseline": {
+      "adapter_path": "pipelines/v2/runs/sft/best_adapter",
+      "greedy": {
+        "sample_count": 588,
+        "correct_count": 414,
+        "official_ex": 70.41,
+        "executable_rate": 95.24
+      },
+      "vote": {
+        "sample_count": 588,
+        "correct_count": 442,
+        "official_ex": 75.17,
+        "executable_rate": 98.98
+      }
+    },
+    "candidates": [
+      {
+        "optimizer_step": 200,
+        "checkpoint_path": "pipelines/v2/runs/grpo/checkpoints/step_000200",
+        "adapter_path": "pipelines/v2/runs/grpo/checkpoints/step_000200/adapter",
+        "greedy": {
+          "sample_count": 588,
+          "correct_count": 409,
+          "official_ex": 69.56,
+          "executable_rate": 95.24
+        },
+        "vote": {
+          "sample_count": 588,
+          "correct_count": 434,
+          "official_ex": 73.81,
+          "executable_rate": 98.81
+        }
+      },
+      {
+        "optimizer_step": 400,
+        "checkpoint_path": "pipelines/v2/runs/grpo/checkpoints/step_000400",
+        "adapter_path": "pipelines/v2/runs/grpo/checkpoints/step_000400/adapter",
+        "greedy": {
+          "sample_count": 588,
+          "correct_count": 420,
+          "official_ex": 71.43,
+          "executable_rate": 96.09
+        },
+        "vote": {
+          "sample_count": 588,
+          "correct_count": 442,
+          "official_ex": 75.17,
+          "executable_rate": 99.15
+        }
+      },
+      {
+        "optimizer_step": 600,
+        "checkpoint_path": "pipelines/v2/runs/grpo/checkpoints/step_000600",
+        "adapter_path": "pipelines/v2/runs/grpo/checkpoints/step_000600/adapter",
+        "greedy": {
+          "sample_count": 588,
+          "correct_count": 417,
+          "official_ex": 70.92,
+          "executable_rate": 95.58
+        },
+        "vote": {
+          "sample_count": 588,
+          "correct_count": 443,
+          "official_ex": 75.34,
+          "executable_rate": 99.32
+        }
+      },
+      {
+        "optimizer_step": 800,
+        "checkpoint_path": "pipelines/v2/runs/grpo/checkpoints/step_000800",
+        "adapter_path": "pipelines/v2/runs/grpo/checkpoints/step_000800/adapter",
+        "greedy": {
+          "sample_count": 588,
+          "correct_count": 417,
+          "official_ex": 70.92,
+          "executable_rate": 95.75
+        },
+        "vote": {
+          "sample_count": 588,
+          "correct_count": 447,
+          "official_ex": 76.02,
+          "executable_rate": 99.32
+        }
+      },
+      {
+        "optimizer_step": 1000,
+        "checkpoint_path": "pipelines/v2/runs/grpo/checkpoints/step_001000",
+        "adapter_path": "pipelines/v2/runs/grpo/checkpoints/step_001000/adapter",
+        "greedy": {
+          "sample_count": 588,
+          "correct_count": 415,
+          "official_ex": 70.58,
+          "executable_rate": 96.09
+        },
+        "vote": {
+          "sample_count": 588,
+          "correct_count": 446,
+          "official_ex": 75.85,
+          "executable_rate": 99.49
+        }
+      },
+      {
+        "optimizer_step": 1135,
+        "checkpoint_path": "pipelines/v2/runs/grpo/final_checkpoint",
+        "adapter_path": "pipelines/v2/runs/grpo/final_checkpoint/adapter",
+        "greedy": {
+          "sample_count": 588,
+          "correct_count": 415,
+          "official_ex": 70.58,
+          "executable_rate": 95.92
+        },
+        "vote": {
+          "sample_count": 588,
+          "correct_count": 445,
+          "official_ex": 75.68,
+          "executable_rate": 99.32
+        }
+      }
+    ]
+  }
+}

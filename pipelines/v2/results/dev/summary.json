@@ -1,0 +1,85 @@
+{
+  "sft_adapter_path": "pipelines/v2/runs/sft/best_adapter",
+  "sft_greedy": {
+    "sample_count": 1534,
+    "correct_count": 828,
+    "official_ex": 53.98,
+    "executable_rate": 87.68,
+    "format_compliance_rate": 99.41,
+    "gold_failure_count": 2,
+    "difficulty": {
+      "simple": {
+        "sample_count": 860,
+        "correct_count": 561,
+        "official_ex": 65.23
+      },
+      "moderate": {
+        "sample_count": 443,
+        "correct_count": 207,
+        "official_ex": 46.73
+      },
+      "challenging": {
+        "sample_count": 231,
+        "correct_count": 60,
+        "official_ex": 25.97
+      }
+    }
+  },
+  "adapter_path": "pipelines/v2/runs/grpo/best_adapter",
+  "greedy": {
+    "sample_count": 1534,
+    "correct_count": 861,
+    "official_ex": 56.13,
+    "executable_rate": 89.77,
+    "format_compliance_rate": 99.48,
+    "gold_failure_count": 2,
+    "difficulty": {
+      "simple": {
+        "sample_count": 860,
+        "correct_count": 573,
+        "official_ex": 66.63
+      },
+      "moderate": {
+        "sample_count": 443,
+        "correct_count": 225,
+        "official_ex": 50.79
+      },
+      "challenging": {
+        "sample_count": 231,
+        "correct_count": 63,
+        "official_ex": 27.27
+      }
+    }
+  },
+  "vote": {
+    "sample_count": 1534,
+    "correct_count": 938,
+    "official_ex": 61.15,
+    "executable_rate": 98.31,
+    "format_compliance_rate": 99.67,
+    "gold_failure_count": 2,
+    "difficulty": {
+      "simple": {
+        "sample_count": 860,
+        "correct_count": 605,
+        "official_ex": 70.35
+      },
+      "moderate": {
+        "sample_count": 443,
+        "correct_count": 260,
+        "official_ex": 58.69
+      },
+      "challenging": {
+        "sample_count": 231,
+        "correct_count": 73,
+        "official_ex": 31.6
+      }
+    }
+  },
+  "grpo_over_sft_correct_gain": 33,
+  "grpo_over_sft_ex_gain_points": 2.15,
+  "vote_correct_gain": 77,
+  "vote_ex_gain_points": 5.02,
+  "wrong_to_right": 99,
+  "right_to_wrong": 22
+}

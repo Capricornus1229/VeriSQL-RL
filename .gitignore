@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and local environment variables
+.venv/
+.venv-deploy/
+venv/
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Raw BIRD data and local model weights
+data/raw/
+/model/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.zip
+
+# Shared generated execution audit
+data/interim/gold_sql_execution.jsonl
+
+# Pipeline runtime assets, weights and caches
+pipelines/*/artifacts/
+pipelines/*/runs/
+pipelines/*/.work/
+pipelines/*/logs/
+
+# Model/checkpoint files
+*.safetensors
+*.ckpt
+optimizer.pt
+scheduler.pt
+training_state.pt
+
+# Keep lightweight frozen result snapshots
+!pipelines/v1/results/
+!pipelines/v1/results/**
+!pipelines/v2/results/
+!pipelines/v2/results/**
+
+# Deployment frontend and runtime
+app/frontend/node_modules/
+app/frontend/dist/
+app/frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+app/runtime/*
+!app/runtime/.gitkeep
+
+# Temporary files
+*.tmp
+*.partial
+*.partial.jsonl

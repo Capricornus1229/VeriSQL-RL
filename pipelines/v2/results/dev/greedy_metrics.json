@@ -1,0 +1,25 @@
+{
+  "sample_count": 1534,
+  "correct_count": 861,
+  "official_ex": 56.13,
+  "executable_rate": 89.77,
+  "format_compliance_rate": 99.48,
+  "gold_failure_count": 2,
+  "difficulty": {
+    "simple": {
+      "sample_count": 860,
+      "correct_count": 573,
+      "official_ex": 66.63
+    },
+    "moderate": {
+      "sample_count": 443,
+      "correct_count": 225,
+      "official_ex": 50.79
+    },
+    "challenging": {
+      "sample_count": 231,
+      "correct_count": 63,
+      "official_ex": 27.27
+    }
+  }
+}

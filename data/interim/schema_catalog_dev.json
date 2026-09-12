@@ -1,0 +1,5369 @@
+[
+    {
+        "db_id": "debit_card_specializing",
+        "sqlite_path": "data/raw/databases/dev/debit_card_specializing/debit_card_specializing.sqlite",
+        "tables": [
+            {
+                "name": "customers",
+                "display_name": "customers",
+                "columns": [
+                    {
+                        "name": "CustomerID",
+                        "display_name": "CustomerID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Segment",
+                        "display_name": "client segment",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Currency",
+                        "display_name": "Currency",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "CustomerID"
+                ]
+            },
+            {
+                "name": "gasstations",
+                "display_name": "gasstations",
+                "columns": [
+                    {
+                        "name": "GasStationID",
+                        "display_name": "Gas Station ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "ChainID",
+                        "display_name": "Chain ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Country",
+                        "display_name": "Country",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Segment",
+                        "display_name": "chain segment",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "GasStationID"
+                ]
+            },
+            {
+                "name": "products",
+                "display_name": "products",
+                "columns": [
+                    {
+                        "name": "ProductID",
+                        "display_name": "Product ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Description",
+                        "display_name": "Description",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "ProductID"
+                ]
+            },
+            {
+                "name": "transactions_1k",
+                "display_name": "transactions_1k",
+                "columns": [
+                    {
+                        "name": "TransactionID",
+                        "display_name": "Transaction ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Date",
+                        "display_name": "Date",
+                        "type": "date"
+                    },
+                    {
+                        "name": "Time",
+                        "display_name": "Time",
+                        "type": "text"
+                    },
+                    {
+                        "name": "CustomerID",
+                        "display_name": "Customer ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CardID",
+                        "display_name": "Card ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "GasStationID",
+                        "display_name": "Gas Station ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "ProductID",
+                        "display_name": "Product ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Amount",
+                        "display_name": "Amount",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Price",
+                        "display_name": "Price",
+                        "type": "real"
+                    }
+                ],
+                "primary_keys": [
+                    "TransactionID"
+                ]
+            },
+            {
+                "name": "yearmonth",
+                "display_name": "yearmonth",
+                "columns": [
+                    {
+                        "name": "CustomerID",
+                        "display_name": "Customer ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Date",
+                        "display_name": "Date",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Consumption",
+                        "display_name": "Consumption",
+                        "type": "real"
+                    }
+                ],
+                "primary_keys": [
+                    "CustomerID",
+                    "Date"
+                ]
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "yearmonth",
+                "source_column": "CustomerID",
+                "target_table": "customers",
+                "target_column": "CustomerID"
+            }
+        ]
+    },
+    {
+        "db_id": "financial",
+        "sqlite_path": "data/raw/databases/dev/financial/financial.sqlite",
+        "tables": [
+            {
+                "name": "account",
+                "display_name": "account",
+                "columns": [
+                    {
+                        "name": "account_id",
+                        "display_name": "account id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "district_id",
+                        "display_name": "location of branch",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "frequency",
+                        "display_name": "frequency",
+                        "type": "text"
+                    },
+                    {
+                        "name": "date",
+                        "display_name": "date",
+                        "type": "date"
+                    }
+                ],
+                "primary_keys": [
+                    "account_id"
+                ]
+            },
+            {
+                "name": "card",
+                "display_name": "card",
+                "columns": [
+                    {
+                        "name": "card_id",
+                        "display_name": "credit card id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "disp_id",
+                        "display_name": "disposition id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "type",
+                        "display_name": "type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "issued",
+                        "display_name": "issued",
+                        "type": "date"
+                    }
+                ],
+                "primary_keys": [
+                    "card_id"
+                ]
+            },
+            {
+                "name": "client",
+                "display_name": "client",
+                "columns": [
+                    {
+                        "name": "client_id",
+                        "display_name": "client_id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "gender",
+                        "display_name": "gender",
+                        "type": "text"
+                    },
+                    {
+                        "name": "birth_date",
+                        "display_name": "birth_date",
+                        "type": "date"
+                    },
+                    {
+                        "name": "district_id",
+                        "display_name": "location of branch",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "client_id"
+                ]
+            },
+            {
+                "name": "disp",
+                "display_name": "disp",
+                "columns": [
+                    {
+                        "name": "disp_id",
+                        "display_name": "disposition id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "client_id",
+                        "display_name": "client_id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "account_id",
+                        "display_name": "account_id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "type",
+                        "display_name": "type",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "disp_id"
+                ]
+            },
+            {
+                "name": "district",
+                "display_name": "district",
+                "columns": [
+                    {
+                        "name": "district_id",
+                        "display_name": "location of branch",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "A2",
+                        "display_name": "district_name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "A3",
+                        "display_name": "region",
+                        "type": "text"
+                    },
+                    {
+                        "name": "A4",
+                        "display_name": "number of inhabitants",
+                        "type": "text"
+                    },
+                    {
+                        "name": "A5",
+                        "display_name": "no. of municipalities with inhabitants < 499",
+                        "type": "text"
+                    },
+                    {
+                        "name": "A6",
+                        "display_name": "no. of municipalities with inhabitants 500-1999",
+                        "type": "text"
+                    },
+                    {
+                        "name": "A7",
+                        "display_name": "no. of municipalities with inhabitants 2000-9999",
+                        "type": "text"
+                    },
+                    {
+                        "name": "A8",
+                        "display_name": "no. of municipalities with inhabitants > 10000",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "A9",
+                        "display_name": "A9",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "A10",
+                        "display_name": "ratio of urban inhabitants",
+                        "type": "real"
+                    },
+                    {
+                        "name": "A11",
+                        "display_name": "average salary",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "A12",
+                        "display_name": "unemployment rate 1995",
+                        "type": "real"
+                    },
+                    {
+                        "name": "A13",
+                        "display_name": "unemployment rate 1996",
+                        "type": "real"
+                    },
+                    {
+                        "name": "A14",
+                        "display_name": "no. of entrepreneurs per 1000 inhabitants",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "A15",
+                        "display_name": "no. of committed crimes 1995",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "A16",
+                        "display_name": "no. of committed crimes 1996",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "district_id"
+                ]
+            },
+            {
+                "name": "loan",
+                "display_name": "loan",
+                "columns": [
+                    {
+                        "name": "loan_id",
+                        "display_name": "loan_id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "account_id",
+                        "display_name": "account_id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "date",
+                        "display_name": "date",
+                        "type": "date"
+                    },
+                    {
+                        "name": "amount",
+                        "display_name": "amount",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "duration",
+                        "display_name": "duration",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "payments",
+                        "display_name": "monthly payments",
+                        "type": "real"
+                    },
+                    {
+                        "name": "status",
+                        "display_name": "status",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "loan_id"
+                ]
+            },
+            {
+                "name": "order",
+                "display_name": "order",
+                "columns": [
+                    {
+                        "name": "order_id",
+                        "display_name": "order_id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "account_id",
+                        "display_name": "account_id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "bank_to",
+                        "display_name": "bank of the recipient",
+                        "type": "text"
+                    },
+                    {
+                        "name": "account_to",
+                        "display_name": "account of the recipient",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "amount",
+                        "display_name": "debited amount",
+                        "type": "real"
+                    },
+                    {
+                        "name": "k_symbol",
+                        "display_name": "characterization of the payment",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "order_id"
+                ]
+            },
+            {
+                "name": "trans",
+                "display_name": "trans",
+                "columns": [
+                    {
+                        "name": "trans_id",
+                        "display_name": "transaction id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "account_id",
+                        "display_name": "account_id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "date",
+                        "display_name": "date of transaction",
+                        "type": "date"
+                    },
+                    {
+                        "name": "type",
+                        "display_name": "+/- transaction",
+                        "type": "text"
+                    },
+                    {
+                        "name": "operation",
+                        "display_name": "mode of transaction",
+                        "type": "text"
+                    },
+                    {
+                        "name": "amount",
+                        "display_name": "amount of money",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "balance",
+                        "display_name": "balance after transaction",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "k_symbol",
+                        "display_name": "characterization of the transaction",
+                        "type": "text"
+                    },
+                    {
+                        "name": "bank",
+                        "display_name": "bank of the partner",
+                        "type": "text"
+                    },
+                    {
+                        "name": "account",
+                        "display_name": "account of the partner",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "trans_id"
+                ]
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "account",
+                "source_column": "district_id",
+                "target_table": "district",
+                "target_column": "district_id"
+            },
+            {
+                "source_table": "card",
+                "source_column": "disp_id",
+                "target_table": "disp",
+                "target_column": "disp_id"
+            },
+            {
+                "source_table": "client",
+                "source_column": "district_id",
+                "target_table": "district",
+                "target_column": "district_id"
+            },
+            {
+                "source_table": "disp",
+                "source_column": "client_id",
+                "target_table": "client",
+                "target_column": "client_id"
+            },
+            {
+                "source_table": "disp",
+                "source_column": "account_id",
+                "target_table": "account",
+                "target_column": "account_id"
+            },
+            {
+                "source_table": "loan",
+                "source_column": "account_id",
+                "target_table": "account",
+                "target_column": "account_id"
+            },
+            {
+                "source_table": "order",
+                "source_column": "account_id",
+                "target_table": "account",
+                "target_column": "account_id"
+            },
+            {
+                "source_table": "trans",
+                "source_column": "account_id",
+                "target_table": "account",
+                "target_column": "account_id"
+            }
+        ]
+    },
+    {
+        "db_id": "formula_1",
+        "sqlite_path": "data/raw/databases/dev/formula_1/formula_1.sqlite",
+        "tables": [
+            {
+                "name": "circuits",
+                "display_name": "circuits",
+                "columns": [
+                    {
+                        "name": "circuitId",
+                        "display_name": "circuit Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "circuitRef",
+                        "display_name": "circuit reference name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "name",
+                        "display_name": "name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "location",
+                        "display_name": "location",
+                        "type": "text"
+                    },
+                    {
+                        "name": "country",
+                        "display_name": "country",
+                        "type": "text"
+                    },
+                    {
+                        "name": "lat",
+                        "display_name": "latitude",
+                        "type": "real"
+                    },
+                    {
+                        "name": "lng",
+                        "display_name": "longitude",
+                        "type": "real"
+                    },
+                    {
+                        "name": "alt",
+                        "display_name": "alt",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "url",
+                        "display_name": "url",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "circuitId"
+                ]
+            },
+            {
+                "name": "constructors",
+                "display_name": "constructors",
+                "columns": [
+                    {
+                        "name": "constructorId",
+                        "display_name": "constructor Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "constructorRef",
+                        "display_name": "Constructor Reference name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "name",
+                        "display_name": "name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "nationality",
+                        "display_name": "nationality",
+                        "type": "text"
+                    },
+                    {
+                        "name": "url",
+                        "display_name": "url",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "constructorId"
+                ]
+            },
+            {
+                "name": "drivers",
+                "display_name": "drivers",
+                "columns": [
+                    {
+                        "name": "driverId",
+                        "display_name": "driver ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "driverRef",
+                        "display_name": "driver reference name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "number",
+                        "display_name": "number",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "code",
+                        "display_name": "code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "forename",
+                        "display_name": "forename",
+                        "type": "text"
+                    },
+                    {
+                        "name": "surname",
+                        "display_name": "surname",
+                        "type": "text"
+                    },
+                    {
+                        "name": "dob",
+                        "display_name": "date of birth",
+                        "type": "date"
+                    },
+                    {
+                        "name": "nationality",
+                        "display_name": "nationality",
+                        "type": "text"
+                    },
+                    {
+                        "name": "url",
+                        "display_name": "url",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "driverId"
+                ]
+            },
+            {
+                "name": "seasons",
+                "display_name": "seasons",
+                "columns": [
+                    {
+                        "name": "year",
+                        "display_name": "race ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "url",
+                        "display_name": "url",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "year"
+                ]
+            },
+            {
+                "name": "races",
+                "display_name": "races",
+                "columns": [
+                    {
+                        "name": "raceId",
+                        "display_name": "race ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "year",
+                        "display_name": "year",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "round",
+                        "display_name": "round",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "circuitId",
+                        "display_name": "Circuit Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "display_name": "name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "date",
+                        "display_name": "date",
+                        "type": "date"
+                    },
+                    {
+                        "name": "time",
+                        "display_name": "time",
+                        "type": "text"
+                    },
+                    {
+                        "name": "url",
+                        "display_name": "url",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "raceId"
+                ]
+            },
+            {
+                "name": "constructorResults",
+                "display_name": "constructorResults",
+                "columns": [
+                    {
+                        "name": "constructorResultsId",
+                        "display_name": "constructor Results Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "raceId",
+                        "display_name": "race Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "constructorId",
+                        "display_name": "constructor Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "points",
+                        "display_name": "points",
+                        "type": "real"
+                    },
+                    {
+                        "name": "status",
+                        "display_name": "status",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "constructorResultsId"
+                ]
+            },
+            {
+                "name": "constructorStandings",
+                "display_name": "constructorStandings",
+                "columns": [
+                    {
+                        "name": "constructorStandingsId",
+                        "display_name": "constructor Standings Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "raceId",
+                        "display_name": "race id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "constructorId",
+                        "display_name": "constructor id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "points",
+                        "display_name": "points",
+                        "type": "real"
+                    },
+                    {
+                        "name": "position",
+                        "display_name": "position",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "positionText",
+                        "display_name": "position text",
+                        "type": "text"
+                    },
+                    {
+                        "name": "wins",
+                        "display_name": "wins",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "constructorStandingsId"
+                ]
+            },
+            {
+                "name": "driverStandings",
+                "display_name": "driverStandings",
+                "columns": [
+                    {
+                        "name": "driverStandingsId",
+                        "display_name": "driver Standings Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "raceId",
+                        "display_name": "constructor Reference name",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "driverId",
+                        "display_name": "driverId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "points",
+                        "display_name": "points",
+                        "type": "real"
+                    },
+                    {
+                        "name": "position",
+                        "display_name": "position",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "positionText",
+                        "display_name": "position text",
+                        "type": "text"
+                    },
+                    {
+                        "name": "wins",
+                        "display_name": "wins",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "driverStandingsId"
+                ]
+            },
+            {
+                "name": "lapTimes",
+                "display_name": "lapTimes",
+                "columns": [
+                    {
+                        "name": "raceId",
+                        "display_name": "race ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "driverId",
+                        "display_name": "driver ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "lap",
+                        "display_name": "lap",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "position",
+                        "display_name": "position",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "time",
+                        "display_name": "time",
+                        "type": "text"
+                    },
+                    {
+                        "name": "milliseconds",
+                        "display_name": "milliseconds",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "raceId",
+                    "driverId",
+                    "lap"
+                ]
+            },
+            {
+                "name": "pitStops",
+                "display_name": "pitStops",
+                "columns": [
+                    {
+                        "name": "raceId",
+                        "display_name": "race ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "driverId",
+                        "display_name": "driver ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "stop",
+                        "display_name": "stop",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "lap",
+                        "display_name": "lap",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "time",
+                        "display_name": "time",
+                        "type": "text"
+                    },
+                    {
+                        "name": "duration",
+                        "display_name": "duration",
+                        "type": "text"
+                    },
+                    {
+                        "name": "milliseconds",
+                        "display_name": "milliseconds",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "raceId",
+                    "driverId",
+                    "stop"
+                ]
+            },
+            {
+                "name": "qualifying",
+                "display_name": "qualifying",
+                "columns": [
+                    {
+                        "name": "qualifyId",
+                        "display_name": "qualify Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "raceId",
+                        "display_name": "race Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "driverId",
+                        "display_name": "driver Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "constructorId",
+                        "display_name": "constructor id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "number",
+                        "display_name": "number",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "position",
+                        "display_name": "position",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "q1",
+                        "display_name": "qualifying 1",
+                        "type": "text"
+                    },
+                    {
+                        "name": "q2",
+                        "display_name": "qualifying 2",
+                        "type": "text"
+                    },
+                    {
+                        "name": "q3",
+                        "display_name": "qualifying 3",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "qualifyId"
+                ]
+            },
+            {
+                "name": "status",
+                "display_name": "status",
+                "columns": [
+                    {
+                        "name": "statusId",
+                        "display_name": "status ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "status",
+                        "display_name": "status",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "statusId"
+                ]
+            },
+            {
+                "name": "results",
+                "display_name": "results",
+                "columns": [
+                    {
+                        "name": "resultId",
+                        "display_name": "Result ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "raceId",
+                        "display_name": "race ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "driverId",
+                        "display_name": "driver ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "constructorId",
+                        "display_name": "constructor Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "number",
+                        "display_name": "number",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "grid",
+                        "display_name": "grid",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "position",
+                        "display_name": "position",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "positionText",
+                        "display_name": "position text",
+                        "type": "text"
+                    },
+                    {
+                        "name": "positionOrder",
+                        "display_name": "position order",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "points",
+                        "display_name": "points",
+                        "type": "real"
+                    },
+                    {
+                        "name": "laps",
+                        "display_name": "laps",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "time",
+                        "display_name": "time",
+                        "type": "text"
+                    },
+                    {
+                        "name": "milliseconds",
+                        "display_name": "milliseconds",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "fastestLap",
+                        "display_name": "fastest lap",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "rank",
+                        "display_name": "rank",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "fastestLapTime",
+                        "display_name": "fastest Lap Time",
+                        "type": "text"
+                    },
+                    {
+                        "name": "fastestLapSpeed",
+                        "display_name": "fastest Lap Speed",
+                        "type": "text"
+                    },
+                    {
+                        "name": "statusId",
+                        "display_name": "status Id",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "resultId"
+                ]
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "races",
+                "source_column": "circuitId",
+                "target_table": "circuits",
+                "target_column": "circuitId"
+            },
+            {
+                "source_table": "races",
+                "source_column": "year",
+                "target_table": "seasons",
+                "target_column": "year"
+            },
+            {
+                "source_table": "constructorResults",
+                "source_column": "constructorId",
+                "target_table": "constructors",
+                "target_column": "constructorId"
+            },
+            {
+                "source_table": "constructorResults",
+                "source_column": "raceId",
+                "target_table": "races",
+                "target_column": "raceId"
+            },
+            {
+                "source_table": "constructorStandings",
+                "source_column": "constructorId",
+                "target_table": "constructors",
+                "target_column": "constructorId"
+            },
+            {
+                "source_table": "constructorStandings",
+                "source_column": "raceId",
+                "target_table": "races",
+                "target_column": "raceId"
+            },
+            {
+                "source_table": "driverStandings",
+                "source_column": "driverId",
+                "target_table": "drivers",
+                "target_column": "driverId"
+            },
+            {
+                "source_table": "driverStandings",
+                "source_column": "raceId",
+                "target_table": "races",
+                "target_column": "raceId"
+            },
+            {
+                "source_table": "lapTimes",
+                "source_column": "driverId",
+                "target_table": "drivers",
+                "target_column": "driverId"
+            },
+            {
+                "source_table": "lapTimes",
+                "source_column": "raceId",
+                "target_table": "races",
+                "target_column": "raceId"
+            },
+            {
+                "source_table": "pitStops",
+                "source_column": "driverId",
+                "target_table": "drivers",
+                "target_column": "driverId"
+            },
+            {
+                "source_table": "pitStops",
+                "source_column": "raceId",
+                "target_table": "races",
+                "target_column": "raceId"
+            },
+            {
+                "source_table": "qualifying",
+                "source_column": "constructorId",
+                "target_table": "constructors",
+                "target_column": "constructorId"
+            },
+            {
+                "source_table": "qualifying",
+                "source_column": "driverId",
+                "target_table": "drivers",
+                "target_column": "driverId"
+            },
+            {
+                "source_table": "qualifying",
+                "source_column": "raceId",
+                "target_table": "races",
+                "target_column": "raceId"
+            },
+            {
+                "source_table": "results",
+                "source_column": "statusId",
+                "target_table": "status",
+                "target_column": "statusId"
+            },
+            {
+                "source_table": "results",
+                "source_column": "constructorId",
+                "target_table": "constructors",
+                "target_column": "constructorId"
+            },
+            {
+                "source_table": "results",
+                "source_column": "driverId",
+                "target_table": "drivers",
+                "target_column": "driverId"
+            },
+            {
+                "source_table": "results",
+                "source_column": "raceId",
+                "target_table": "races",
+                "target_column": "raceId"
+            }
+        ]
+    },
+    {
+        "db_id": "california_schools",
+        "sqlite_path": "data/raw/databases/dev/california_schools/california_schools.sqlite",
+        "tables": [
+            {
+                "name": "frpm",
+                "display_name": "frpm",
+                "columns": [
+                    {
+                        "name": "CDSCode",
+                        "display_name": "CDSCode",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Academic Year",
+                        "display_name": "Academic Year",
+                        "type": "text"
+                    },
+                    {
+                        "name": "County Code",
+                        "display_name": "County Code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "District Code",
+                        "display_name": "District Code",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "School Code",
+                        "display_name": "School Code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "County Name",
+                        "display_name": "County Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "District Name",
+                        "display_name": "District Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "School Name",
+                        "display_name": "School Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "District Type",
+                        "display_name": "District Type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "School Type",
+                        "display_name": "School Type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Educational Option Type",
+                        "display_name": "Educational Option Type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "NSLP Provision Status",
+                        "display_name": "NSLP Provision Status",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Charter School (Y/N)",
+                        "display_name": "Charter School (Y/N)",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Charter School Number",
+                        "display_name": "Charter School Number",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Charter Funding Type",
+                        "display_name": "Charter Funding Type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "IRC",
+                        "display_name": "IRC",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Low Grade",
+                        "display_name": "Low Grade",
+                        "type": "text"
+                    },
+                    {
+                        "name": "High Grade",
+                        "display_name": "High Grade",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Enrollment (K-12)",
+                        "display_name": "Enrollment (K-12)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "Free Meal Count (K-12)",
+                        "display_name": "Free Meal Count (K-12)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "Percent (%) Eligible Free (K-12)",
+                        "display_name": "Percent (%) Eligible Free (K-12)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "FRPM Count (K-12)",
+                        "display_name": "FRPM Count (K-12)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "Percent (%) Eligible FRPM (K-12)",
+                        "display_name": "Percent (%) Eligible FRPM (K-12)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "Enrollment (Ages 5-17)",
+                        "display_name": "Enrollment (Ages 5-17)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "Free Meal Count (Ages 5-17)",
+                        "display_name": "Free Meal Count (Ages 5-17)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "Percent (%) Eligible Free (Ages 5-17)",
+                        "display_name": "Percent (%) Eligible Free (Ages 5-17)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "FRPM Count (Ages 5-17)",
+                        "display_name": "FRPM Count (Ages 5-17)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "Percent (%) Eligible FRPM (Ages 5-17)",
+                        "display_name": "Percent (%) Eligible FRPM (Ages 5-17)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "2013-14 CALPADS Fall 1 Certification Status",
+                        "display_name": "2013-14 CALPADS Fall 1 Certification Status",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "CDSCode"
+                ]
+            },
+            {
+                "name": "satscores",
+                "display_name": "satscores",
+                "columns": [
+                    {
+                        "name": "cds",
+                        "display_name": "cds",
+                        "type": "text"
+                    },
+                    {
+                        "name": "rtype",
+                        "display_name": "rtype",
+                        "type": "text"
+                    },
+                    {
+                        "name": "sname",
+                        "display_name": "school name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "dname",
+                        "display_name": "district name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "cname",
+                        "display_name": "county name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "enroll12",
+                        "display_name": "enrollment (1st-12nd grade)",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "NumTstTakr",
+                        "display_name": "Number of Test Takers",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "AvgScrRead",
+                        "display_name": "average scores in Reading",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "AvgScrMath",
+                        "display_name": "average scores in Math",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "AvgScrWrite",
+                        "display_name": "average scores in writing",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "NumGE1500",
+                        "display_name": "Number of Test Takers Whose Total SAT Scores Are Greater or Equal to 1500",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "cds"
+                ]
+            },
+            {
+                "name": "schools",
+                "display_name": "schools",
+                "columns": [
+                    {
+                        "name": "CDSCode",
+                        "display_name": "CDSCode",
+                        "type": "text"
+                    },
+                    {
+                        "name": "NCESDist",
+                        "display_name": "National Center for Educational Statistics school district identification number",
+                        "type": "text"
+                    },
+                    {
+                        "name": "NCESSchool",
+                        "display_name": "National Center for Educational Statistics school identification number",
+                        "type": "text"
+                    },
+                    {
+                        "name": "StatusType",
+                        "display_name": "StatusType",
+                        "type": "text"
+                    },
+                    {
+                        "name": "County",
+                        "display_name": "County",
+                        "type": "text"
+                    },
+                    {
+                        "name": "District",
+                        "display_name": "District",
+                        "type": "text"
+                    },
+                    {
+                        "name": "School",
+                        "display_name": "School",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Street",
+                        "display_name": "Street",
+                        "type": "text"
+                    },
+                    {
+                        "name": "StreetAbr",
+                        "display_name": "street address",
+                        "type": "text"
+                    },
+                    {
+                        "name": "City",
+                        "display_name": "City",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Zip",
+                        "display_name": "Zip",
+                        "type": "text"
+                    },
+                    {
+                        "name": "State",
+                        "display_name": "State",
+                        "type": "text"
+                    },
+                    {
+                        "name": "MailStreet",
+                        "display_name": "MailStreet",
+                        "type": "text"
+                    },
+                    {
+                        "name": "MailStrAbr",
+                        "display_name": "mailing street address",
+                        "type": "text"
+                    },
+                    {
+                        "name": "MailCity",
+                        "display_name": "mailing city",
+                        "type": "text"
+                    },
+                    {
+                        "name": "MailZip",
+                        "display_name": "mailing zip",
+                        "type": "text"
+                    },
+                    {
+                        "name": "MailState",
+                        "display_name": "mailing state",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Phone",
+                        "display_name": "Phone",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Ext",
+                        "display_name": "extension",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Website",
+                        "display_name": "Website",
+                        "type": "text"
+                    },
+                    {
+                        "name": "OpenDate",
+                        "display_name": "OpenDate",
+                        "type": "date"
+                    },
+                    {
+                        "name": "ClosedDate",
+                        "display_name": "ClosedDate",
+                        "type": "date"
+                    },
+                    {
+                        "name": "Charter",
+                        "display_name": "Charter",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CharterNum",
+                        "display_name": "CharterNum",
+                        "type": "text"
+                    },
+                    {
+                        "name": "FundingType",
+                        "display_name": "FundingType",
+                        "type": "text"
+                    },
+                    {
+                        "name": "DOC",
+                        "display_name": "District Ownership Code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "DOCType",
+                        "display_name": "The District Ownership Code Type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "SOC",
+                        "display_name": "School Ownership Code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "SOCType",
+                        "display_name": "School Ownership Code Type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "EdOpsCode",
+                        "display_name": "Education Option Code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "EdOpsName",
+                        "display_name": "Educational Option Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "EILCode",
+                        "display_name": "Educational Instruction Level Code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "EILName",
+                        "display_name": "Educational Instruction Level Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "GSoffered",
+                        "display_name": "grade span offered",
+                        "type": "text"
+                    },
+                    {
+                        "name": "GSserved",
+                        "display_name": "grade span served.",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Virtual",
+                        "display_name": "Virtual",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Magnet",
+                        "display_name": "Magnet",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Latitude",
+                        "display_name": "Latitude",
+                        "type": "real"
+                    },
+                    {
+                        "name": "Longitude",
+                        "display_name": "Longitude",
+                        "type": "real"
+                    },
+                    {
+                        "name": "AdmFName1",
+                        "display_name": "administrator's first name 1",
+                        "type": "text"
+                    },
+                    {
+                        "name": "AdmLName1",
+                        "display_name": "administrator's last name 1",
+                        "type": "text"
+                    },
+                    {
+                        "name": "AdmEmail1",
+                        "display_name": "administrator's email address 1",
+                        "type": "text"
+                    },
+                    {
+                        "name": "AdmFName2",
+                        "display_name": "administrator's first name 2",
+                        "type": "text"
+                    },
+                    {
+                        "name": "AdmLName2",
+                        "display_name": "administrator's last name 2",
+                        "type": "text"
+                    },
+                    {
+                        "name": "AdmEmail2",
+                        "display_name": "administrator's email address 2",
+                        "type": "text"
+                    },
+                    {
+                        "name": "AdmFName3",
+                        "display_name": "administrator's first name 3",
+                        "type": "text"
+                    },
+                    {
+                        "name": "AdmLName3",
+                        "display_name": "administrator's last name 3",
+                        "type": "text"
+                    },
+                    {
+                        "name": "AdmEmail3",
+                        "display_name": "administrator's email address 3",
+                        "type": "text"
+                    },
+                    {
+                        "name": "LastUpdate",
+                        "display_name": "Last Update",
+                        "type": "date"
+                    }
+                ],
+                "primary_keys": [
+                    "CDSCode"
+                ]
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "frpm",
+                "source_column": "CDSCode",
+                "target_table": "schools",
+                "target_column": "CDSCode"
+            },
+            {
+                "source_table": "satscores",
+                "source_column": "cds",
+                "target_table": "schools",
+                "target_column": "CDSCode"
+            }
+        ]
+    },
+    {
+        "db_id": "card_games",
+        "sqlite_path": "data/raw/databases/dev/card_games/card_games.sqlite",
+        "tables": [
+            {
+                "name": "cards",
+                "display_name": "cards",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "unique id number identifying the cards",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "artist",
+                        "display_name": "artist",
+                        "type": "text"
+                    },
+                    {
+                        "name": "asciiName",
+                        "display_name": "ascii Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "availability",
+                        "display_name": "availability",
+                        "type": "text"
+                    },
+                    {
+                        "name": "borderColor",
+                        "display_name": "border Color",
+                        "type": "text"
+                    },
+                    {
+                        "name": "cardKingdomFoilId",
+                        "display_name": "card Kingdom Foil Id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "cardKingdomId",
+                        "display_name": "card Kingdom Id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "colorIdentity",
+                        "display_name": "color Identity",
+                        "type": "text"
+                    },
+                    {
+                        "name": "colorIndicator",
+                        "display_name": "color Indicator",
+                        "type": "text"
+                    },
+                    {
+                        "name": "colors",
+                        "display_name": "colors",
+                        "type": "text"
+                    },
+                    {
+                        "name": "convertedManaCost",
+                        "display_name": "converted Mana Cost",
+                        "type": "real"
+                    },
+                    {
+                        "name": "duelDeck",
+                        "display_name": "duel Deck",
+                        "type": "text"
+                    },
+                    {
+                        "name": "edhrecRank",
+                        "display_name": "rec Rank in edh",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "faceConvertedManaCost",
+                        "display_name": "face Converted Mana Cost",
+                        "type": "real"
+                    },
+                    {
+                        "name": "faceName",
+                        "display_name": "face Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "flavorName",
+                        "display_name": "flavor Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "flavorText",
+                        "display_name": "flavor Text",
+                        "type": "text"
+                    },
+                    {
+                        "name": "frameEffects",
+                        "display_name": "frame Effects",
+                        "type": "text"
+                    },
+                    {
+                        "name": "frameVersion",
+                        "display_name": "frame Version",
+                        "type": "text"
+                    },
+                    {
+                        "name": "hand",
+                        "display_name": "hand",
+                        "type": "text"
+                    },
+                    {
+                        "name": "hasAlternativeDeckLimit",
+                        "display_name": "has Alternative Deck Limit",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "hasContentWarning",
+                        "display_name": "has Content Warning",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "hasFoil",
+                        "display_name": "has Foil",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "hasNonFoil",
+                        "display_name": "has Non Foil",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isAlternative",
+                        "display_name": "is Alternative",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isFullArt",
+                        "display_name": "is Full Art",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isOnlineOnly",
+                        "display_name": "is Online Only",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isOversized",
+                        "display_name": "is Oversized",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isPromo",
+                        "display_name": "is Promotion",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isReprint",
+                        "display_name": "is Reprint",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isReserved",
+                        "display_name": "is Reserved",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isStarter",
+                        "display_name": "is Starter",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isStorySpotlight",
+                        "display_name": "is Story Spotlight",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isTextless",
+                        "display_name": "is Text less",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isTimeshifted",
+                        "display_name": "is Time shifted",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "keywords",
+                        "display_name": "keywords",
+                        "type": "text"
+                    },
+                    {
+                        "name": "layout",
+                        "display_name": "layout",
+                        "type": "text"
+                    },
+                    {
+                        "name": "leadershipSkills",
+                        "display_name": "leadership Skills",
+                        "type": "text"
+                    },
+                    {
+                        "name": "life",
+                        "display_name": "life",
+                        "type": "text"
+                    },
+                    {
+                        "name": "loyalty",
+                        "display_name": "loyalty",
+                        "type": "text"
+                    },
+                    {
+                        "name": "manaCost",
+                        "display_name": "mana Cost",
+                        "type": "text"
+                    },
+                    {
+                        "name": "mcmId",
+                        "display_name": "mcmId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "mcmMetaId",
+                        "display_name": "mcmMetaId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "mtgArenaId",
+                        "display_name": "mtgArenaId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "mtgjsonV4Id",
+                        "display_name": "mtgjsonV4Id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "mtgoFoilId",
+                        "display_name": "mtgoFoilId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "mtgoId",
+                        "display_name": "mtgoId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "multiverseId",
+                        "display_name": "multiverseId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "name",
+                        "display_name": "name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "number",
+                        "display_name": "number",
+                        "type": "text"
+                    },
+                    {
+                        "name": "originalReleaseDate",
+                        "display_name": "originalReleaseDate",
+                        "type": "text"
+                    },
+                    {
+                        "name": "originalText",
+                        "display_name": "originalText",
+                        "type": "text"
+                    },
+                    {
+                        "name": "originalType",
+                        "display_name": "originalType",
+                        "type": "text"
+                    },
+                    {
+                        "name": "otherFaceIds",
+                        "display_name": "otherFaceIds",
+                        "type": "text"
+                    },
+                    {
+                        "name": "power",
+                        "display_name": "power",
+                        "type": "text"
+                    },
+                    {
+                        "name": "printings",
+                        "display_name": "printings",
+                        "type": "text"
+                    },
+                    {
+                        "name": "promoTypes",
+                        "display_name": "promo Types",
+                        "type": "text"
+                    },
+                    {
+                        "name": "purchaseUrls",
+                        "display_name": "purchase Urls",
+                        "type": "text"
+                    },
+                    {
+                        "name": "rarity",
+                        "display_name": "rarity",
+                        "type": "text"
+                    },
+                    {
+                        "name": "scryfallId",
+                        "display_name": "scryfallId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "scryfallIllustrationId",
+                        "display_name": "scryfallIllustrationId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "scryfallOracleId",
+                        "display_name": "scryfallOracleId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "setCode",
+                        "display_name": "Set Code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "side",
+                        "display_name": "side",
+                        "type": "text"
+                    },
+                    {
+                        "name": "subtypes",
+                        "display_name": "subtypes",
+                        "type": "text"
+                    },
+                    {
+                        "name": "supertypes",
+                        "display_name": "super types",
+                        "type": "text"
+                    },
+                    {
+                        "name": "tcgplayerProductId",
+                        "display_name": "tcg player ProductId",
+                        "type": "text"
+                    },
+                    {
+                        "name": "text",
+                        "display_name": "text",
+                        "type": "text"
+                    },
+                    {
+                        "name": "toughness",
+                        "display_name": "toughness",
+                        "type": "text"
+                    },
+                    {
+                        "name": "type",
+                        "display_name": "type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "types",
+                        "display_name": "types",
+                        "type": "text"
+                    },
+                    {
+                        "name": "uuid",
+                        "display_name": "uuid",
+                        "type": "text"
+                    },
+                    {
+                        "name": "variations",
+                        "display_name": "variations",
+                        "type": "text"
+                    },
+                    {
+                        "name": "watermark",
+                        "display_name": "watermark",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "foreign_data",
+                "display_name": "foreign_data",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "flavorText",
+                        "display_name": "flavor Text",
+                        "type": "text"
+                    },
+                    {
+                        "name": "language",
+                        "display_name": "language",
+                        "type": "text"
+                    },
+                    {
+                        "name": "multiverseid",
+                        "display_name": "multiverseid",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "display_name": "name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "text",
+                        "display_name": "text",
+                        "type": "text"
+                    },
+                    {
+                        "name": "type",
+                        "display_name": "type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "uuid",
+                        "display_name": "uuid",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "legalities",
+                "display_name": "legalities",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "format",
+                        "display_name": "format",
+                        "type": "text"
+                    },
+                    {
+                        "name": "status",
+                        "display_name": "status",
+                        "type": "text"
+                    },
+                    {
+                        "name": "uuid",
+                        "display_name": "uuid",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "sets",
+                "display_name": "sets",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "baseSetSize",
+                        "display_name": "base Set Size",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "block",
+                        "display_name": "block",
+                        "type": "text"
+                    },
+                    {
+                        "name": "booster",
+                        "display_name": "booster",
+                        "type": "text"
+                    },
+                    {
+                        "name": "code",
+                        "display_name": "code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "isFoilOnly",
+                        "display_name": "is Foil Only",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isForeignOnly",
+                        "display_name": "is Foreign Only",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isNonFoilOnly",
+                        "display_name": "is Non Foil Only",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isOnlineOnly",
+                        "display_name": "is Online Only",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "isPartialPreview",
+                        "display_name": "is Partial Preview",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "keyruneCode",
+                        "display_name": "keyrune Code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "mcmId",
+                        "display_name": "magic card market id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "mcmIdExtras",
+                        "display_name": "magic card market ID Extras",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "mcmName",
+                        "display_name": "magic card market name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "mtgoCode",
+                        "display_name": "magic the gathering online code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "name",
+                        "display_name": "name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "parentCode",
+                        "display_name": "parent Code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "releaseDate",
+                        "display_name": "release Date",
+                        "type": "date"
+                    },
+                    {
+                        "name": "tcgplayerGroupId",
+                        "display_name": "tcg player Group Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "totalSetSize",
+                        "display_name": "total Set Size",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "type",
+                        "display_name": "type",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "set_translations",
+                "display_name": "set_translations",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "language",
+                        "display_name": "language",
+                        "type": "text"
+                    },
+                    {
+                        "name": "setCode",
+                        "display_name": "set code",
+                        "type": "text"
+                    },
+                    {
+                        "name": "translation",
+                        "display_name": "translation",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "rulings",
+                "display_name": "ruling",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "date",
+                        "display_name": "date",
+                        "type": "date"
+                    },
+                    {
+                        "name": "text",
+                        "display_name": "text",
+                        "type": "text"
+                    },
+                    {
+                        "name": "uuid",
+                        "display_name": "uuid",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "foreign_data",
+                "source_column": "uuid",
+                "target_table": "cards",
+                "target_column": "uuid"
+            },
+            {
+                "source_table": "legalities",
+                "source_column": "uuid",
+                "target_table": "cards",
+                "target_column": "uuid"
+            },
+            {
+                "source_table": "set_translations",
+                "source_column": "setCode",
+                "target_table": "sets",
+                "target_column": "code"
+            },
+            {
+                "source_table": "rulings",
+                "source_column": "uuid",
+                "target_table": "cards",
+                "target_column": "uuid"
+            }
+        ]
+    },
+    {
+        "db_id": "european_football_2",
+        "sqlite_path": "data/raw/databases/dev/european_football_2/european_football_2.sqlite",
+        "tables": [
+            {
+                "name": "Player_Attributes",
+                "display_name": "Player_Attributes",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "player_fifa_api_id",
+                        "display_name": "player federation international football association api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "player_api_id",
+                        "display_name": "player api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "date",
+                        "display_name": "date",
+                        "type": "text"
+                    },
+                    {
+                        "name": "overall_rating",
+                        "display_name": "overall_rating",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "potential",
+                        "display_name": "potential",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "preferred_foot",
+                        "display_name": "preferred foot",
+                        "type": "text"
+                    },
+                    {
+                        "name": "attacking_work_rate",
+                        "display_name": "attacking work rate",
+                        "type": "text"
+                    },
+                    {
+                        "name": "defensive_work_rate",
+                        "display_name": "defensive_work_rate",
+                        "type": "text"
+                    },
+                    {
+                        "name": "crossing",
+                        "display_name": "crossing",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "finishing",
+                        "display_name": "finishing",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "heading_accuracy",
+                        "display_name": "heading accuracy",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "short_passing",
+                        "display_name": "short passing",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "volleys",
+                        "display_name": "volleys",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "dribbling",
+                        "display_name": "dribbling",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "curve",
+                        "display_name": "curve",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "free_kick_accuracy",
+                        "display_name": "free kick accuracy",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "long_passing",
+                        "display_name": "long passing",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "ball_control",
+                        "display_name": "ball control",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "acceleration",
+                        "display_name": "acceleration",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "sprint_speed",
+                        "display_name": "sprint speed",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "agility",
+                        "display_name": "agility",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "reactions",
+                        "display_name": "reactions",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "balance",
+                        "display_name": "balance",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "shot_power",
+                        "display_name": "shot power",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "jumping",
+                        "display_name": "jumping",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "stamina",
+                        "display_name": "stamina",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "strength",
+                        "display_name": "strength",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "long_shots",
+                        "display_name": "long shots",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "aggression",
+                        "display_name": "aggression",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "interceptions",
+                        "display_name": "interceptions",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "positioning",
+                        "display_name": "positioning",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "vision",
+                        "display_name": "vision",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "penalties",
+                        "display_name": "penalties",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "marking",
+                        "display_name": "marking",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "standing_tackle",
+                        "display_name": "standing tackle",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "sliding_tackle",
+                        "display_name": "sliding tackle",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "gk_diving",
+                        "display_name": "goalkeep diving",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "gk_handling",
+                        "display_name": "goalkeep handling",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "gk_kicking",
+                        "display_name": "goalkeep kicking",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "gk_positioning",
+                        "display_name": "goalkeep positioning",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "gk_reflexes",
+                        "display_name": "goalkeep reflexes",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "Player",
+                "display_name": "Player",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "player_api_id",
+                        "display_name": "player api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "player_name",
+                        "display_name": "player name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "player_fifa_api_id",
+                        "display_name": "player federation international football association api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "birthday",
+                        "display_name": "birthday",
+                        "type": "text"
+                    },
+                    {
+                        "name": "height",
+                        "display_name": "height",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "weight",
+                        "display_name": "weight",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "League",
+                "display_name": "League",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "country_id",
+                        "display_name": "country id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "display_name": "name",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "Country",
+                "display_name": "Country",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "display_name": "name",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "Team",
+                "display_name": "Team",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "team_api_id",
+                        "display_name": "team api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "team_fifa_api_id",
+                        "display_name": "team federation international football association api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "team_long_name",
+                        "display_name": "team long name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "team_short_name",
+                        "display_name": "team short name",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "Team_Attributes",
+                "display_name": "Team_Attributes",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "team_fifa_api_id",
+                        "display_name": "team federation international football association api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "team_api_id",
+                        "display_name": "team api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "date",
+                        "display_name": "date",
+                        "type": "text"
+                    },
+                    {
+                        "name": "buildUpPlaySpeed",
+                        "display_name": "build Up Play Speed",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "buildUpPlaySpeedClass",
+                        "display_name": "build Up Play Speed Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "buildUpPlayDribbling",
+                        "display_name": "build Up Play Dribbling",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "buildUpPlayDribblingClass",
+                        "display_name": "build Up Play Dribbling Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "buildUpPlayPassing",
+                        "display_name": "build Up Play Passing",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "buildUpPlayPassingClass",
+                        "display_name": "build Up Play Passing Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "buildUpPlayPositioningClass",
+                        "display_name": "build Up Play Positioning Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "chanceCreationPassing",
+                        "display_name": "chance Creation Passing",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "chanceCreationPassingClass",
+                        "display_name": "chance Creation Passing Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "chanceCreationCrossing",
+                        "display_name": "chance Creation Crossing",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "chanceCreationCrossingClass",
+                        "display_name": "chance Creation Crossing Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "chanceCreationShooting",
+                        "display_name": "chance Creation Shooting",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "chanceCreationShootingClass",
+                        "display_name": "chance Creation Shooting Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "chanceCreationPositioningClass",
+                        "display_name": "chance Creation Positioning Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "defencePressure",
+                        "display_name": "defence Pressure",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "defencePressureClass",
+                        "display_name": "defence Pressure Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "defenceAggression",
+                        "display_name": "defence Aggression",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "defenceAggressionClass",
+                        "display_name": "defence Aggression Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "defenceTeamWidth",
+                        "display_name": "defence Team Width",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "defenceTeamWidthClass",
+                        "display_name": "defence Team Width Class",
+                        "type": "text"
+                    },
+                    {
+                        "name": "defenceDefenderLineClass",
+                        "display_name": "defence Defender Line Class",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "Match",
+                "display_name": "Match",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "country_id",
+                        "display_name": "country id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "league_id",
+                        "display_name": "league id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "season",
+                        "display_name": "season",
+                        "type": "text"
+                    },
+                    {
+                        "name": "stage",
+                        "display_name": "stage",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "date",
+                        "display_name": "date",
+                        "type": "text"
+                    },
+                    {
+                        "name": "match_api_id",
+                        "display_name": "match api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_team_api_id",
+                        "display_name": "home team api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_team_api_id",
+                        "display_name": "away team api id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_team_goal",
+                        "display_name": "home team goal",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_team_goal",
+                        "display_name": "away team goal",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X1",
+                        "display_name": "home_player_X1",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X2",
+                        "display_name": "home_player_X2",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X3",
+                        "display_name": "home_player_X3",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X4",
+                        "display_name": "home_player_X4",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X5",
+                        "display_name": "home_player_X5",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X6",
+                        "display_name": "home_player_X6",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X7",
+                        "display_name": "home_player_X7",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X8",
+                        "display_name": "home_player_X8",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X9",
+                        "display_name": "home_player_X9",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X10",
+                        "display_name": "home_player_X10",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_X11",
+                        "display_name": "home_player_X11",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X1",
+                        "display_name": "away_player_X1",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X2",
+                        "display_name": "away_player_X2",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X3",
+                        "display_name": "away_player_X3",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X4",
+                        "display_name": "away_player_X4",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X5",
+                        "display_name": "away_player_X5",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X6",
+                        "display_name": "away_player_X6",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X7",
+                        "display_name": "away_player_X7",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X8",
+                        "display_name": "away_player_X8",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X9",
+                        "display_name": "away_player_X9",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X10",
+                        "display_name": "away_player_X10",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_X11",
+                        "display_name": "away_player_X11",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y1",
+                        "display_name": "home_player_Y1",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y2",
+                        "display_name": "home_player_Y2",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y3",
+                        "display_name": "home_player_Y3",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y4",
+                        "display_name": "home_player_Y4",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y5",
+                        "display_name": "home_player_Y5",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y6",
+                        "display_name": "home_player_Y6",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y7",
+                        "display_name": "home_player_Y7",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y8",
+                        "display_name": "home_player_Y8",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y9",
+                        "display_name": "home_player_Y9",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y10",
+                        "display_name": "home_player_Y10",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_Y11",
+                        "display_name": "home_player_Y11",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y1",
+                        "display_name": "away_player_Y1",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y2",
+                        "display_name": "away_player_Y2",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y3",
+                        "display_name": "away_player_Y3",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y4",
+                        "display_name": "away_player_Y4",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y5",
+                        "display_name": "away_player_Y5",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y6",
+                        "display_name": "away_player_Y6",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y7",
+                        "display_name": "away_player_Y7",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y8",
+                        "display_name": "away_player_Y8",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y9",
+                        "display_name": "away_player_Y9",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y10",
+                        "display_name": "away_player_Y10",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_Y11",
+                        "display_name": "away_player_Y11",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_1",
+                        "display_name": "home_player_1",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_2",
+                        "display_name": "home_player_2",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_3",
+                        "display_name": "home_player_3",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_4",
+                        "display_name": "home_player_4",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_5",
+                        "display_name": "home_player_5",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_6",
+                        "display_name": "home_player_6",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_7",
+                        "display_name": "home_player_7",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_8",
+                        "display_name": "home_player_8",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_9",
+                        "display_name": "home_player_9",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_10",
+                        "display_name": "home_player_10",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "home_player_11",
+                        "display_name": "home_player_11",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_1",
+                        "display_name": "away_player_1",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_2",
+                        "display_name": "away_player_2",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_3",
+                        "display_name": "away_player_3",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_4",
+                        "display_name": "away_player_4",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_5",
+                        "display_name": "away_player_5",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_6",
+                        "display_name": "away_player_6",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_7",
+                        "display_name": "away_player_7",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_8",
+                        "display_name": "away_player_8",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_9",
+                        "display_name": "away_player_9",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_10",
+                        "display_name": "away_player_10",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "away_player_11",
+                        "display_name": "away_player_11",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "goal",
+                        "display_name": "goal",
+                        "type": "text"
+                    },
+                    {
+                        "name": "shoton",
+                        "display_name": "shot on",
+                        "type": "text"
+                    },
+                    {
+                        "name": "shotoff",
+                        "display_name": "shot off",
+                        "type": "text"
+                    },
+                    {
+                        "name": "foulcommit",
+                        "display_name": "foul commit",
+                        "type": "text"
+                    },
+                    {
+                        "name": "card",
+                        "display_name": "card",
+                        "type": "text"
+                    },
+                    {
+                        "name": "cross",
+                        "display_name": "cross",
+                        "type": "text"
+                    },
+                    {
+                        "name": "corner",
+                        "display_name": "corner",
+                        "type": "text"
+                    },
+                    {
+                        "name": "possession",
+                        "display_name": "possession",
+                        "type": "text"
+                    },
+                    {
+                        "name": "B365H",
+                        "display_name": "B365H",
+                        "type": "real"
+                    },
+                    {
+                        "name": "B365D",
+                        "display_name": "B365D",
+                        "type": "real"
+                    },
+                    {
+                        "name": "B365A",
+                        "display_name": "B365A",
+                        "type": "real"
+                    },
+                    {
+                        "name": "BWH",
+                        "display_name": "BWH",
+                        "type": "real"
+                    },
+                    {
+                        "name": "BWD",
+                        "display_name": "BWD",
+                        "type": "real"
+                    },
+                    {
+                        "name": "BWA",
+                        "display_name": "BWA",
+                        "type": "real"
+                    },
+                    {
+                        "name": "IWH",
+                        "display_name": "IWH",
+                        "type": "real"
+                    },
+                    {
+                        "name": "IWD",
+                        "display_name": "IWD",
+                        "type": "real"
+                    },
+                    {
+                        "name": "IWA",
+                        "display_name": "IWA",
+                        "type": "real"
+                    },
+                    {
+                        "name": "LBH",
+                        "display_name": "LBH",
+                        "type": "real"
+                    },
+                    {
+                        "name": "LBD",
+                        "display_name": "LBD",
+                        "type": "real"
+                    },
+                    {
+                        "name": "LBA",
+                        "display_name": "LBA",
+                        "type": "real"
+                    },
+                    {
+                        "name": "PSH",
+                        "display_name": "PSH",
+                        "type": "real"
+                    },
+                    {
+                        "name": "PSD",
+                        "display_name": "PSD",
+                        "type": "real"
+                    },
+                    {
+                        "name": "PSA",
+                        "display_name": "PSA",
+                        "type": "real"
+                    },
+                    {
+                        "name": "WHH",
+                        "display_name": "WHH",
+                        "type": "real"
+                    },
+                    {
+                        "name": "WHD",
+                        "display_name": "WHD",
+                        "type": "real"
+                    },
+                    {
+                        "name": "WHA",
+                        "display_name": "WHA",
+                        "type": "real"
+                    },
+                    {
+                        "name": "SJH",
+                        "display_name": "SJH",
+                        "type": "real"
+                    },
+                    {
+                        "name": "SJD",
+                        "display_name": "SJD",
+                        "type": "real"
+                    },
+                    {
+                        "name": "SJA",
+                        "display_name": "SJA",
+                        "type": "real"
+                    },
+                    {
+                        "name": "VCH",
+                        "display_name": "VCH",
+                        "type": "real"
+                    },
+                    {
+                        "name": "VCD",
+                        "display_name": "VCD",
+                        "type": "real"
+                    },
+                    {
+                        "name": "VCA",
+                        "display_name": "VCA",
+                        "type": "real"
+                    },
+                    {
+                        "name": "GBH",
+                        "display_name": "GBH",
+                        "type": "real"
+                    },
+                    {
+                        "name": "GBD",
+                        "display_name": "GBD",
+                        "type": "real"
+                    },
+                    {
+                        "name": "GBA",
+                        "display_name": "GBA",
+                        "type": "real"
+                    },
+                    {
+                        "name": "BSH",
+                        "display_name": "BSH",
+                        "type": "real"
+                    },
+                    {
+                        "name": "BSD",
+                        "display_name": "BSD",
+                        "type": "real"
+                    },
+                    {
+                        "name": "BSA",
+                        "display_name": "BSA",
+                        "type": "real"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "Player_Attributes",
+                "source_column": "player_api_id",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Player_Attributes",
+                "source_column": "player_fifa_api_id",
+                "target_table": "Player",
+                "target_column": "player_fifa_api_id"
+            },
+            {
+                "source_table": "League",
+                "source_column": "country_id",
+                "target_table": "Country",
+                "target_column": "id"
+            },
+            {
+                "source_table": "Team_Attributes",
+                "source_column": "team_api_id",
+                "target_table": "Team",
+                "target_column": "team_api_id"
+            },
+            {
+                "source_table": "Team_Attributes",
+                "source_column": "team_fifa_api_id",
+                "target_table": "Team",
+                "target_column": "team_fifa_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_11",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_10",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_9",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_8",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_7",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_6",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_5",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_4",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_3",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_2",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_player_1",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_11",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_10",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_9",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_8",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_7",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_6",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_5",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_4",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_3",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_2",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_player_1",
+                "target_table": "Player",
+                "target_column": "player_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "away_team_api_id",
+                "target_table": "Team",
+                "target_column": "team_api_id"
+            },
+            {
+                "source_table": "Match",
+                "source_column": "home_team_api_id",
+                "target_table": "Team",
+                "target_column": "team_api_id"
+            }
+        ]
+    },
+    {
+        "db_id": "thrombosis_prediction",
+        "sqlite_path": "data/raw/databases/dev/thrombosis_prediction/thrombosis_prediction.sqlite",
+        "tables": [
+            {
+                "name": "Examination",
+                "display_name": "Examination",
+                "columns": [
+                    {
+                        "name": "ID",
+                        "display_name": "ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Examination Date",
+                        "display_name": "Examination Date",
+                        "type": "date"
+                    },
+                    {
+                        "name": "aCL IgG",
+                        "display_name": "anti-Cardiolipin antibody (IgG)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "aCL IgM",
+                        "display_name": "anti-Cardiolipin antibody (IgM)",
+                        "type": "real"
+                    },
+                    {
+                        "name": "ANA",
+                        "display_name": "anti-nucleus antibody",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "ANA Pattern",
+                        "display_name": "pattern observed in the sheet of ANA examination",
+                        "type": "text"
+                    },
+                    {
+                        "name": "aCL IgA",
+                        "display_name": "anti-Cardiolipin antibody (IgA) concentration",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Diagnosis",
+                        "display_name": "Diagnosis",
+                        "type": "text"
+                    },
+                    {
+                        "name": "KCT",
+                        "display_name": "measure of degree of coagulation",
+                        "type": "text"
+                    },
+                    {
+                        "name": "RVVT",
+                        "display_name": "measure of degree of coagulation",
+                        "type": "text"
+                    },
+                    {
+                        "name": "LAC",
+                        "display_name": "measure of degree of coagulation",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Symptoms",
+                        "display_name": "Symptoms",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Thrombosis",
+                        "display_name": "Thrombosis",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": []
+            },
+            {
+                "name": "Patient",
+                "display_name": "Patient",
+                "columns": [
+                    {
+                        "name": "ID",
+                        "display_name": "ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "SEX",
+                        "display_name": "SEX",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Birthday",
+                        "display_name": "Birthday",
+                        "type": "date"
+                    },
+                    {
+                        "name": "Description",
+                        "display_name": "Description",
+                        "type": "date"
+                    },
+                    {
+                        "name": "First Date",
+                        "display_name": "First Date",
+                        "type": "date"
+                    },
+                    {
+                        "name": "Admission",
+                        "display_name": "Admission",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Diagnosis",
+                        "display_name": "Diagnosis",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "ID"
+                ]
+            },
+            {
+                "name": "Laboratory",
+                "display_name": "Laboratory",
+                "columns": [
+                    {
+                        "name": "ID",
+                        "display_name": "ID",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Date",
+                        "display_name": "Date",
+                        "type": "date"
+                    },
+                    {
+                        "name": "GOT",
+                        "display_name": "AST glutamic oxaloacetic transaminase",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "GPT",
+                        "display_name": "ALT glutamic pyruvic transaminase",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "LDH",
+                        "display_name": "lactate dehydrogenase",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "ALP",
+                        "display_name": "alkaliphophatase",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "TP",
+                        "display_name": "total protein",
+                        "type": "real"
+                    },
+                    {
+                        "name": "ALB",
+                        "display_name": "albumin",
+                        "type": "real"
+                    },
+                    {
+                        "name": "UA",
+                        "display_name": "uric acid",
+                        "type": "real"
+                    },
+                    {
+                        "name": "UN",
+                        "display_name": "urea nitrogen",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CRE",
+                        "display_name": "creatinine",
+                        "type": "real"
+                    },
+                    {
+                        "name": "T-BIL",
+                        "display_name": "total bilirubin",
+                        "type": "real"
+                    },
+                    {
+                        "name": "T-CHO",
+                        "display_name": "total cholesterol",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "TG",
+                        "display_name": "triglyceride",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CPK",
+                        "display_name": "creatinine phosphokinase",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "GLU",
+                        "display_name": "blood glucose",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "WBC",
+                        "display_name": "White blood cell",
+                        "type": "real"
+                    },
+                    {
+                        "name": "RBC",
+                        "display_name": "Red blood cell",
+                        "type": "real"
+                    },
+                    {
+                        "name": "HGB",
+                        "display_name": "Hemoglobin",
+                        "type": "real"
+                    },
+                    {
+                        "name": "HCT",
+                        "display_name": "Hematoclit",
+                        "type": "real"
+                    },
+                    {
+                        "name": "PLT",
+                        "display_name": "platelet",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "PT",
+                        "display_name": "prothrombin time",
+                        "type": "real"
+                    },
+                    {
+                        "name": "APTT",
+                        "display_name": "activated partial prothrombin time",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "FG",
+                        "display_name": "fibrinogen",
+                        "type": "real"
+                    },
+                    {
+                        "name": "PIC",
+                        "display_name": "PIC",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "TAT",
+                        "display_name": "TAT",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "TAT2",
+                        "display_name": "TAT2",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "U-PRO",
+                        "display_name": "proteinuria",
+                        "type": "text"
+                    },
+                    {
+                        "name": "IGG",
+                        "display_name": "Ig G",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "IGA",
+                        "display_name": "Ig A",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "IGM",
+                        "display_name": "Ig M",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CRP",
+                        "display_name": "C-reactive protein",
+                        "type": "text"
+                    },
+                    {
+                        "name": "RA",
+                        "display_name": "Rhuematoid Factor",
+                        "type": "text"
+                    },
+                    {
+                        "name": "RF",
+                        "display_name": "RAHA",
+                        "type": "text"
+                    },
+                    {
+                        "name": "C3",
+                        "display_name": "complement 3",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "C4",
+                        "display_name": "complement 4",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "RNP",
+                        "display_name": "anti-ribonuclear protein",
+                        "type": "text"
+                    },
+                    {
+                        "name": "SM",
+                        "display_name": "anti-SM",
+                        "type": "text"
+                    },
+                    {
+                        "name": "SC170",
+                        "display_name": "anti-scl70",
+                        "type": "text"
+                    },
+                    {
+                        "name": "SSA",
+                        "display_name": "anti-SSA",
+                        "type": "text"
+                    },
+                    {
+                        "name": "SSB",
+                        "display_name": "anti-SSB",
+                        "type": "text"
+                    },
+                    {
+                        "name": "CENTROMEA",
+                        "display_name": "anti-centromere",
+                        "type": "text"
+                    },
+                    {
+                        "name": "DNA",
+                        "display_name": "anti-DNA",
+                        "type": "text"
+                    },
+                    {
+                        "name": "DNA-II",
+                        "display_name": "anti-DNA",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "ID",
+                    "Date"
+                ]
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "Examination",
+                "source_column": "ID",
+                "target_table": "Patient",
+                "target_column": "ID"
+            },
+            {
+                "source_table": "Laboratory",
+                "source_column": "ID",
+                "target_table": "Patient",
+                "target_column": "ID"
+            }
+        ]
+    },
+    {
+        "db_id": "toxicology",
+        "sqlite_path": "data/raw/databases/dev/toxicology/toxicology.sqlite",
+        "tables": [
+            {
+                "name": "atom",
+                "display_name": "atom",
+                "columns": [
+                    {
+                        "name": "atom_id",
+                        "display_name": "atom id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "molecule_id",
+                        "display_name": "molecule id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "element",
+                        "display_name": "element",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "atom_id"
+                ]
+            },
+            {
+                "name": "bond",
+                "display_name": "bond",
+                "columns": [
+                    {
+                        "name": "bond_id",
+                        "display_name": "bond_id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "molecule_id",
+                        "display_name": "molecule_id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "bond_type",
+                        "display_name": "bond_type",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "bond_id"
+                ]
+            },
+            {
+                "name": "connected",
+                "display_name": "connected",
+                "columns": [
+                    {
+                        "name": "atom_id",
+                        "display_name": "atom id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "atom_id2",
+                        "display_name": "atom id 2",
+                        "type": "text"
+                    },
+                    {
+                        "name": "bond_id",
+                        "display_name": "bond id",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "atom_id",
+                    "atom_id2"
+                ]
+            },
+            {
+                "name": "molecule",
+                "display_name": "molecule",
+                "columns": [
+                    {
+                        "name": "molecule_id",
+                        "display_name": "molecule id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "label",
+                        "display_name": "label",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "molecule_id"
+                ]
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "atom",
+                "source_column": "molecule_id",
+                "target_table": "molecule",
+                "target_column": "molecule_id"
+            },
+            {
+                "source_table": "bond",
+                "source_column": "molecule_id",
+                "target_table": "molecule",
+                "target_column": "molecule_id"
+            },
+            {
+                "source_table": "connected",
+                "source_column": "bond_id",
+                "target_table": "bond",
+                "target_column": "bond_id"
+            },
+            {
+                "source_table": "connected",
+                "source_column": "atom_id2",
+                "target_table": "atom",
+                "target_column": "atom_id"
+            },
+            {
+                "source_table": "connected",
+                "source_column": "atom_id",
+                "target_table": "atom",
+                "target_column": "atom_id"
+            }
+        ]
+    },
+    {
+        "db_id": "student_club",
+        "sqlite_path": "data/raw/databases/dev/student_club/student_club.sqlite",
+        "tables": [
+            {
+                "name": "event",
+                "display_name": "Event",
+                "columns": [
+                    {
+                        "name": "event_id",
+                        "display_name": "event id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "event_name",
+                        "display_name": "event name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "event_date",
+                        "display_name": "event date",
+                        "type": "text"
+                    },
+                    {
+                        "name": "type",
+                        "display_name": "type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "notes",
+                        "display_name": "notes",
+                        "type": "text"
+                    },
+                    {
+                        "name": "location",
+                        "display_name": "location",
+                        "type": "text"
+                    },
+                    {
+                        "name": "status",
+                        "display_name": "status",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "event_id"
+                ]
+            },
+            {
+                "name": "major",
+                "display_name": "Major",
+                "columns": [
+                    {
+                        "name": "major_id",
+                        "display_name": "major id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "major_name",
+                        "display_name": "major name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "department",
+                        "display_name": "department",
+                        "type": "text"
+                    },
+                    {
+                        "name": "college",
+                        "display_name": "college",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "major_id"
+                ]
+            },
+            {
+                "name": "zip_code",
+                "display_name": "Zip_Code",
+                "columns": [
+                    {
+                        "name": "zip_code",
+                        "display_name": "zip code",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "type",
+                        "display_name": "type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "city",
+                        "display_name": "city",
+                        "type": "text"
+                    },
+                    {
+                        "name": "county",
+                        "display_name": "county",
+                        "type": "text"
+                    },
+                    {
+                        "name": "state",
+                        "display_name": "state",
+                        "type": "text"
+                    },
+                    {
+                        "name": "short_state",
+                        "display_name": "short state",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "zip_code"
+                ]
+            },
+            {
+                "name": "attendance",
+                "display_name": "Attendance",
+                "columns": [
+                    {
+                        "name": "link_to_event",
+                        "display_name": "link to event",
+                        "type": "text"
+                    },
+                    {
+                        "name": "link_to_member",
+                        "display_name": "link to member",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "link_to_event",
+                    "link_to_member"
+                ]
+            },
+            {
+                "name": "budget",
+                "display_name": "Budget",
+                "columns": [
+                    {
+                        "name": "budget_id",
+                        "display_name": "budget id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "category",
+                        "display_name": "category",
+                        "type": "text"
+                    },
+                    {
+                        "name": "spent",
+                        "display_name": "spent",
+                        "type": "real"
+                    },
+                    {
+                        "name": "remaining",
+                        "display_name": "remaining",
+                        "type": "real"
+                    },
+                    {
+                        "name": "amount",
+                        "display_name": "amount",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "event_status",
+                        "display_name": "event status",
+                        "type": "text"
+                    },
+                    {
+                        "name": "link_to_event",
+                        "display_name": "link to event",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "budget_id"
+                ]
+            },
+            {
+                "name": "expense",
+                "display_name": "Expense",
+                "columns": [
+                    {
+                        "name": "expense_id",
+                        "display_name": "expense id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "expense_description",
+                        "display_name": "expense description",
+                        "type": "text"
+                    },
+                    {
+                        "name": "expense_date",
+                        "display_name": "expense date",
+                        "type": "text"
+                    },
+                    {
+                        "name": "cost",
+                        "display_name": "cost",
+                        "type": "real"
+                    },
+                    {
+                        "name": "approved",
+                        "display_name": "approved",
+                        "type": "text"
+                    },
+                    {
+                        "name": "link_to_member",
+                        "display_name": "link to member",
+                        "type": "text"
+                    },
+                    {
+                        "name": "link_to_budget",
+                        "display_name": "link to budget",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "expense_id"
+                ]
+            },
+            {
+                "name": "income",
+                "display_name": "Income",
+                "columns": [
+                    {
+                        "name": "income_id",
+                        "display_name": "income id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "date_received",
+                        "display_name": "date received",
+                        "type": "text"
+                    },
+                    {
+                        "name": "amount",
+                        "display_name": "amount",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "source",
+                        "display_name": "source",
+                        "type": "text"
+                    },
+                    {
+                        "name": "notes",
+                        "display_name": "notes",
+                        "type": "text"
+                    },
+                    {
+                        "name": "link_to_member",
+                        "display_name": "link to member",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "income_id"
+                ]
+            },
+            {
+                "name": "member",
+                "display_name": "Member",
+                "columns": [
+                    {
+                        "name": "member_id",
+                        "display_name": "member id",
+                        "type": "text"
+                    },
+                    {
+                        "name": "first_name",
+                        "display_name": "first name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "last_name",
+                        "display_name": "last name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "email",
+                        "display_name": "email",
+                        "type": "text"
+                    },
+                    {
+                        "name": "position",
+                        "display_name": "position",
+                        "type": "text"
+                    },
+                    {
+                        "name": "t_shirt_size",
+                        "display_name": "t_shirt_size",
+                        "type": "text"
+                    },
+                    {
+                        "name": "phone",
+                        "display_name": "phone",
+                        "type": "text"
+                    },
+                    {
+                        "name": "zip",
+                        "display_name": "zip",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "link_to_major",
+                        "display_name": "link to major",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "member_id"
+                ]
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "attendance",
+                "source_column": "link_to_member",
+                "target_table": "member",
+                "target_column": "member_id"
+            },
+            {
+                "source_table": "attendance",
+                "source_column": "link_to_event",
+                "target_table": "event",
+                "target_column": "event_id"
+            },
+            {
+                "source_table": "budget",
+                "source_column": "link_to_event",
+                "target_table": "event",
+                "target_column": "event_id"
+            },
+            {
+                "source_table": "expense",
+                "source_column": "link_to_member",
+                "target_table": "member",
+                "target_column": "member_id"
+            },
+            {
+                "source_table": "expense",
+                "source_column": "link_to_budget",
+                "target_table": "budget",
+                "target_column": "budget_id"
+            },
+            {
+                "source_table": "income",
+                "source_column": "link_to_member",
+                "target_table": "member",
+                "target_column": "member_id"
+            },
+            {
+                "source_table": "member",
+                "source_column": "zip",
+                "target_table": "zip_code",
+                "target_column": "zip_code"
+            },
+            {
+                "source_table": "member",
+                "source_column": "link_to_major",
+                "target_table": "major",
+                "target_column": "major_id"
+            }
+        ]
+    },
+    {
+        "db_id": "superhero",
+        "sqlite_path": "data/raw/databases/dev/superhero/superhero.sqlite",
+        "tables": [
+            {
+                "name": "alignment",
+                "display_name": "alignment",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "alignment",
+                        "display_name": "alignment",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "attribute",
+                "display_name": "attribute",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "attribute_name",
+                        "display_name": "attribute name",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "colour",
+                "display_name": "colour",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "colour",
+                        "display_name": "colour",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "gender",
+                "display_name": "gender",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "gender",
+                        "display_name": "gender",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "publisher",
+                "display_name": "publisher",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "publisher_name",
+                        "display_name": "publisher_name",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "race",
+                "display_name": "race",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "race",
+                        "display_name": "race",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "superhero",
+                "display_name": "superhero",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "superhero_name",
+                        "display_name": "superhero name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "full_name",
+                        "display_name": "full name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "gender_id",
+                        "display_name": "gender id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "eye_colour_id",
+                        "display_name": "eye colour id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "hair_colour_id",
+                        "display_name": "hair colour id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "skin_colour_id",
+                        "display_name": "skin colour id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "race_id",
+                        "display_name": "race id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "publisher_id",
+                        "display_name": "publisher id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "alignment_id",
+                        "display_name": "alignment id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "height_cm",
+                        "display_name": "height cm",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "weight_kg",
+                        "display_name": "weight kg",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "hero_attribute",
+                "display_name": "hero_attribute",
+                "columns": [
+                    {
+                        "name": "hero_id",
+                        "display_name": "hero id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "attribute_id",
+                        "display_name": "attribute id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "attribute_value",
+                        "display_name": "attribute value",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": []
+            },
+            {
+                "name": "superpower",
+                "display_name": "superpower",
+                "columns": [
+                    {
+                        "name": "id",
+                        "display_name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "power_name",
+                        "display_name": "power name",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "id"
+                ]
+            },
+            {
+                "name": "hero_power",
+                "display_name": "hero_power",
+                "columns": [
+                    {
+                        "name": "hero_id",
+                        "display_name": "hero id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "power_id",
+                        "display_name": "power id",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": []
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "superhero",
+                "source_column": "skin_colour_id",
+                "target_table": "colour",
+                "target_column": "id"
+            },
+            {
+                "source_table": "superhero",
+                "source_column": "race_id",
+                "target_table": "race",
+                "target_column": "id"
+            },
+            {
+                "source_table": "superhero",
+                "source_column": "publisher_id",
+                "target_table": "publisher",
+                "target_column": "id"
+            },
+            {
+                "source_table": "superhero",
+                "source_column": "hair_colour_id",
+                "target_table": "colour",
+                "target_column": "id"
+            },
+            {
+                "source_table": "superhero",
+                "source_column": "gender_id",
+                "target_table": "gender",
+                "target_column": "id"
+            },
+            {
+                "source_table": "superhero",
+                "source_column": "eye_colour_id",
+                "target_table": "colour",
+                "target_column": "id"
+            },
+            {
+                "source_table": "superhero",
+                "source_column": "alignment_id",
+                "target_table": "alignment",
+                "target_column": "id"
+            },
+            {
+                "source_table": "hero_attribute",
+                "source_column": "hero_id",
+                "target_table": "superhero",
+                "target_column": "id"
+            },
+            {
+                "source_table": "hero_attribute",
+                "source_column": "attribute_id",
+                "target_table": "attribute",
+                "target_column": "id"
+            },
+            {
+                "source_table": "hero_power",
+                "source_column": "power_id",
+                "target_table": "superpower",
+                "target_column": "id"
+            },
+            {
+                "source_table": "hero_power",
+                "source_column": "hero_id",
+                "target_table": "superhero",
+                "target_column": "id"
+            }
+        ]
+    },
+    {
+        "db_id": "codebase_community",
+        "sqlite_path": "data/raw/databases/dev/codebase_community/codebase_community.sqlite",
+        "tables": [
+            {
+                "name": "badges",
+                "display_name": "badges",
+                "columns": [
+                    {
+                        "name": "Id",
+                        "display_name": "Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "UserId",
+                        "display_name": "User Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Name",
+                        "display_name": "Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Date",
+                        "display_name": "Date",
+                        "type": "datetime"
+                    }
+                ],
+                "primary_keys": [
+                    "Id"
+                ]
+            },
+            {
+                "name": "comments",
+                "display_name": "comments",
+                "columns": [
+                    {
+                        "name": "Id",
+                        "display_name": "Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "PostId",
+                        "display_name": "Post Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Score",
+                        "display_name": "Score",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Text",
+                        "display_name": "Text",
+                        "type": "text"
+                    },
+                    {
+                        "name": "CreationDate",
+                        "display_name": "Creation Date",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "UserId",
+                        "display_name": "User Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "UserDisplayName",
+                        "display_name": "User Display Name",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "Id"
+                ]
+            },
+            {
+                "name": "postHistory",
+                "display_name": "postHistory",
+                "columns": [
+                    {
+                        "name": "Id",
+                        "display_name": "Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "PostHistoryTypeId",
+                        "display_name": "Post History Type Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "PostId",
+                        "display_name": "Post Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "RevisionGUID",
+                        "display_name": "Revision GUID",
+                        "type": "text"
+                    },
+                    {
+                        "name": "CreationDate",
+                        "display_name": "Creation Date",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "UserId",
+                        "display_name": "User Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Text",
+                        "display_name": "Text",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Comment",
+                        "display_name": "Comment",
+                        "type": "text"
+                    },
+                    {
+                        "name": "UserDisplayName",
+                        "display_name": "User Display Name",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "Id"
+                ]
+            },
+            {
+                "name": "postLinks",
+                "display_name": "postLinks",
+                "columns": [
+                    {
+                        "name": "Id",
+                        "display_name": "Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CreationDate",
+                        "display_name": "Creation Date",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "PostId",
+                        "display_name": "Post Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "RelatedPostId",
+                        "display_name": "Related Post Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "LinkTypeId",
+                        "display_name": "Link Type Id",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "Id"
+                ]
+            },
+            {
+                "name": "posts",
+                "display_name": "posts",
+                "columns": [
+                    {
+                        "name": "Id",
+                        "display_name": "Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "PostTypeId",
+                        "display_name": "Post Type Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "AcceptedAnswerId",
+                        "display_name": "Accepted Answer Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CreaionDate",
+                        "display_name": "Creation Date",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "Score",
+                        "display_name": "Score",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "ViewCount",
+                        "display_name": "View Count",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Body",
+                        "display_name": "Body",
+                        "type": "text"
+                    },
+                    {
+                        "name": "OwnerUserId",
+                        "display_name": "Owner User Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "LasActivityDate",
+                        "display_name": "Last Activity Date",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "Title",
+                        "display_name": "Title",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Tags",
+                        "display_name": "Tags",
+                        "type": "text"
+                    },
+                    {
+                        "name": "AnswerCount",
+                        "display_name": "Answer Count",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CommentCount",
+                        "display_name": "Comment Count",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "FavoriteCount",
+                        "display_name": "Favorite Count",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "LastEditorUserId",
+                        "display_name": "Last Editor User Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "LastEditDate",
+                        "display_name": "Last Edit Date",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "CommunityOwnedDate",
+                        "display_name": "Community Owned Date",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "ParentId",
+                        "display_name": "ParentId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "ClosedDate",
+                        "display_name": "Closed Date",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "OwnerDisplayName",
+                        "display_name": "Owner Display Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "LastEditorDisplayName",
+                        "display_name": "Last Editor Display Name",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "Id"
+                ]
+            },
+            {
+                "name": "tags",
+                "display_name": "tags",
+                "columns": [
+                    {
+                        "name": "Id",
+                        "display_name": "Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "TagName",
+                        "display_name": "Tag Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Count",
+                        "display_name": "Count",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "ExcerptPostId",
+                        "display_name": "Excerpt Post Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "WikiPostId",
+                        "display_name": "Wiki Post Id",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "Id"
+                ]
+            },
+            {
+                "name": "users",
+                "display_name": "users",
+                "columns": [
+                    {
+                        "name": "Id",
+                        "display_name": "Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Reputation",
+                        "display_name": "Reputation",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CreationDate",
+                        "display_name": "Creation Date",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "DisplayName",
+                        "display_name": "Display Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "LastAccessDate",
+                        "display_name": "Last Access Date",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "WebsiteUrl",
+                        "display_name": "Website Url",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Location",
+                        "display_name": "Location",
+                        "type": "text"
+                    },
+                    {
+                        "name": "AboutMe",
+                        "display_name": "About Me",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Views",
+                        "display_name": "Views",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "UpVotes",
+                        "display_name": "UpVotes",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "DownVotes",
+                        "display_name": "DownVotes",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "AccountId",
+                        "display_name": "Account Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Age",
+                        "display_name": "Age",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "ProfileImageUrl",
+                        "display_name": "Profile Image Url",
+                        "type": "text"
+                    }
+                ],
+                "primary_keys": [
+                    "Id"
+                ]
+            },
+            {
+                "name": "votes",
+                "display_name": "votes",
+                "columns": [
+                    {
+                        "name": "Id",
+                        "display_name": "Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "PostId",
+                        "display_name": "Post Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "VoteTypeId",
+                        "display_name": "Vote Type Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CreationDate",
+                        "display_name": "Creation Date",
+                        "type": "date"
+                    },
+                    {
+                        "name": "UserId",
+                        "display_name": "User Id",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "BountyAmount",
+                        "display_name": "Bounty Amount",
+                        "type": "integer"
+                    }
+                ],
+                "primary_keys": [
+                    "Id"
+                ]
+            }
+        ],
+        "foreign_keys": [
+            {
+                "source_table": "badges",
+                "source_column": "UserId",
+                "target_table": "users",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "comments",
+                "source_column": "UserId",
+                "target_table": "users",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "comments",
+                "source_column": "PostId",
+                "target_table": "posts",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "postHistory",
+                "source_column": "UserId",
+                "target_table": "users",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "postHistory",
+                "source_column": "PostId",
+                "target_table": "posts",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "postLinks",
+                "source_column": "RelatedPostId",
+                "target_table": "posts",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "postLinks",
+                "source_column": "PostId",
+                "target_table": "posts",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "posts",
+                "source_column": "ParentId",
+                "target_table": "posts",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "posts",
+                "source_column": "OwnerUserId",
+                "target_table": "users",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "posts",
+                "source_column": "LastEditorUserId",
+                "target_table": "users",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "tags",
+                "source_column": "ExcerptPostId",
+                "target_table": "posts",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "votes",
+                "source_column": "UserId",
+                "target_table": "users",
+                "target_column": "Id"
+            },
+            {
+                "source_table": "votes",
+                "source_column": "PostId",
+                "target_table": "posts",
+                "target_column": "Id"
+            }
+        ]
+    }
+]

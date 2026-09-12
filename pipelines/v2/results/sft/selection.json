@@ -1,0 +1,34 @@
+{
+  "selected_epoch": 2,
+  "adapter_path": "pipelines/v2/runs/sft/best_adapter",
+  "metrics": {
+    "sample_count": 588,
+    "correct_count": 414,
+    "official_ex": 70.41,
+    "executable_rate": 95.24
+  },
+  "candidates": [
+    {
+      "epoch": 1,
+      "checkpoint_path": "pipelines/v2/runs/sft/checkpoints/epoch_001",
+      "adapter_path": "pipelines/v2/runs/sft/checkpoints/epoch_001/adapter",
+      "metrics": {
+        "sample_count": 588,
+        "correct_count": 407,
+        "official_ex": 69.22,
+        "executable_rate": 93.37
+      }
+    },
+    {
+      "epoch": 2,
+      "checkpoint_path": "pipelines/v2/runs/sft/checkpoints/epoch_002",
+      "adapter_path": "pipelines/v2/runs/sft/checkpoints/epoch_002/adapter",
+      "metrics": {
+        "sample_count": 588,
+        "correct_count": 414,
+        "official_ex": 70.41,
+        "executable_rate": 95.24
+      }
+    }
+  ]
+}

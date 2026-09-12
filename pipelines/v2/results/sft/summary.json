@@ -1,0 +1,77 @@
+{
+  "training": {
+    "mode": "train",
+    "global_step": 752,
+    "epochs": [
+      {
+        "epoch": 1,
+        "train_loss": 0.2919707222932544,
+        "train_supervised_tokens": 716195,
+        "duration_seconds": 2014.7843783460012,
+        "validation_loss": 0.24206386812874547,
+        "validation_perplexity": 1.2738755502657433,
+        "validation_supervised_tokens": 67572,
+        "global_step": 376
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.17185590392112687,
+        "train_supervised_tokens": 716169,
+        "duration_seconds": 2003.6452174079986,
+        "validation_loss": 0.23844045532977243,
+        "validation_perplexity": 1.269268125634253,
+        "validation_supervised_tokens": 67572,
+        "global_step": 752
+      }
+    ],
+    "data_audit": {
+      "train": {
+        "sample_count": 6013,
+        "longest_sample_id": "train_004840",
+        "max_sequence_length": 7297,
+        "longest_sample_supervised_tokens": 160
+      },
+      "validation": {
+        "sample_count": 588,
+        "longest_sample_id": "train_006088",
+        "max_sequence_length": 1640,
+        "longest_sample_supervised_tokens": 139
+      }
+    },
+    "preflight_sample": null
+  },
+  "selection": {
+    "selected_epoch": 2,
+    "adapter_path": "pipelines/v2/runs/sft/best_adapter",
+    "metrics": {
+      "sample_count": 588,
+      "correct_count": 414,
+      "official_ex": 70.41,
+      "executable_rate": 95.24
+    },
+    "candidates": [
+      {
+        "epoch": 1,
+        "checkpoint_path": "pipelines/v2/runs/sft/checkpoints/epoch_001",
+        "adapter_path": "pipelines/v2/runs/sft/checkpoints/epoch_001/adapter",
+        "metrics": {
+          "sample_count": 588,
+          "correct_count": 407,
+          "official_ex": 69.22,
+          "executable_rate": 93.37
+        }
+      },
+      {
+        "epoch": 2,
+        "checkpoint_path": "pipelines/v2/runs/sft/checkpoints/epoch_002",
+        "adapter_path": "pipelines/v2/runs/sft/checkpoints/epoch_002/adapter",
+        "metrics": {
+          "sample_count": 588,
+          "correct_count": 414,
+          "official_ex": 70.41,
+          "executable_rate": 95.24
+        }
+      }
+    ]
+  }
+}

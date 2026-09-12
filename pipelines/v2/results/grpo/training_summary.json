@@ -1,0 +1,14 @@
+{
+  "source_prompt_count": 2628,
+  "duplicated_prompt": null,
+  "processed_groups": 2628,
+  "exact_mixed_groups": 1685,
+  "all_wrong_groups": 570,
+  "all_correct_groups": 373,
+  "insufficient_valid_groups": 0,
+  "truncated_candidate_count": 1,
+  "optimizer_steps": 1135,
+  "prompt_cursor": 1314,
+  "duration_seconds": 34127.062,
+  "final_checkpoint": "pipelines/v2/runs/grpo/final_checkpoint"
+}

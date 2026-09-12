@@ -1,0 +1,1 @@
+"""VeriSQL Studio deployment package."""

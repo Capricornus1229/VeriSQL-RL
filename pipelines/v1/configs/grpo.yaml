@@ -1,0 +1,62 @@
+run:
+  run_name: qwen3_8b_bird_grpo
+  seed: 42
+  expected_num_processes: 2
+  model_output_dir: pipelines/v1/runs/grpo/model
+  training_report_dir: pipelines/v1/runs/grpo
+  work_dir: pipelines/v1/runs/grpo/model/.work
+
+model:
+  model_path: model/Qwen3-8B
+  tokenizer_path: model/Qwen3-8B
+  sft_adapter_path: pipelines/v1/runs/sft/model/best_adapter
+  dtype: bfloat16
+  attention_implementation: sdpa
+  enable_thinking: false
+  max_context_length: 40960
+  gradient_checkpointing: true
+  lora_dropout: 0.0
+
+data:
+  sft_train_path: pipelines/v1/artifacts/data/sft_train.jsonl
+  sft_val_path: pipelines/v1/artifacts/data/sft_val.jsonl
+  train_schema_catalog_path: data/interim/schema_catalog_train.json
+  gold_execution_path: data/interim/gold_sql_execution.jsonl
+  sft_baseline_metrics_path: pipelines/v1/runs/sft/dev/metrics.json
+
+generation:
+  num_generations: 4
+  micro_batch_size: 4
+  max_new_tokens: 512
+  temperature: 1.0
+  top_p: 1.0
+  top_k: 0
+
+reward:
+  timeout_seconds: 5.0
+  max_rows: 10000
+  exclude_empty_gold: true
+
+grpo:
+  num_epochs: 1
+  num_iterations: 1
+  loss_type: dapo
+  learning_rate: 1.0e-6
+  weight_decay: 0.0
+  beta1: 0.9
+  beta2: 0.999
+  adam_epsilon: 1.0e-8
+  warmup_ratio: 0.03
+  scheduler_type: cosine
+  clip_epsilon: 0.2
+  beta: 0.0
+  max_grad_norm: 1.0
+  checkpoint_every_optimizer_steps: 50
+  keep_last_checkpoints: 2
+
+evaluation:
+  max_new_tokens: 2048
+  timeout_seconds: 60.0
+  baseline_dev_ex: 49.74
+  predictions_path: pipelines/v1/runs/grpo/dev/predictions.jsonl
+  metrics_path: pipelines/v1/runs/grpo/dev/metrics.json

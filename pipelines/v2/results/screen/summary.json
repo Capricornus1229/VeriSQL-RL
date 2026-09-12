@@ -1,0 +1,41 @@
+{
+  "manifest_prompt_count": 6013,
+  "eligible_prompt_count": 5939,
+  "manifest_excluded_prompt_count": 74,
+  "scorable_prompt_count": 5937,
+  "unscorable_prompt_count": 2,
+  "num_candidates": 4,
+  "generated_candidate_count": 23756,
+  "valid_candidate_count": 23753,
+  "truncated_candidate_count": 3,
+  "selected_prompt_count": 2628,
+  "selection_rate": 44.25,
+  "exact_mixed_count": 1880,
+  "zero_exact_partial_variance_count": 748,
+  "exact_pass_count_buckets": {
+    "0": 1098,
+    "1": 474,
+    "2": 571,
+    "3": 835,
+    "4": 2959
+  },
+  "valid_candidate_count_buckets": {
+    "3": 3,
+    "4": 5934
+  },
+  "gold_exclusion_reasons": {
+    "gold_timeout": 2
+  },
+  "candidate_extraction_statuses": {
+    "failed": 3,
+    "reasoning_sql_fence": 23753
+  },
+  "candidate_execution_statuses": {
+    "execution_error": 1386,
+    "row_limit": 143,
+    "success": 22180,
+    "timeout": 35,
+    "unsafe_sql": 1
+  },
+  "format_compliance_rate": 99.99
+}

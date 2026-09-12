@@ -1,0 +1,11 @@
+{
+  "request_count": 40,
+  "success_count": 40,
+  "error_count": 0,
+  "qps": 1.27053219674533,
+  "latency_p50_ms": 3251.186323002912,
+  "latency_p95_ms": 3493.864322983427,
+  "latency_p99_ms": 3495.3664600034244,
+  "mean_generation_ms": 1519.780925,
+  "mean_execution_ms": 41.213924999999996
+}

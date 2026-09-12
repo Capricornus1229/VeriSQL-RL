@@ -1,0 +1,101 @@
+run:
+  seed: 42
+  expected_num_processes: 2
+
+model:
+  base_model_path: model/Qwen3-8B
+  tokenizer_path: model/Qwen3-8B
+  teacher_model_path: model/Qwen3-14B-Instruct
+  dtype: bfloat16
+  attention_implementation: sdpa
+  max_context_length: 40960
+
+paths:
+  train_annotation: data/raw/annotations/train/bird23_train_filtered.jsonl
+  dev_annotation: data/raw/annotations/dev/bird_sql_dev_20251106.json
+  train_schema_catalog: data/interim/schema_catalog_train.json
+  dev_schema_catalog: data/interim/schema_catalog_dev.json
+  train_database_root: data/raw/databases/train
+  dev_database_root: data/raw/databases/dev
+  gold_execution_report: data/interim/gold_sql_execution.jsonl
+
+grounding:
+  scan_rows_per_column: 5000
+  max_unique_values_per_column: 500
+  max_value_chars: 128
+  top_columns: 8
+  values_per_column: 3
+
+teacher:
+  max_new_tokens: 256
+  max_length: 8192
+  device_map: balanced
+
+sft:
+  max_length: 8192
+  train_batch_size_per_device: 1
+  validation_batch_size_per_device: 1
+  gradient_accumulation_steps: 8
+  epochs: 2
+  learning_rate: 5.0e-5
+  warmup_ratio: 0.03
+  max_grad_norm: 1.0
+  lora_r: 32
+  lora_alpha: 64
+  lora_dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+  smoke_optimizer_steps: 20
+
+generation:
+  enable_thinking: true
+  temperature: 0.8
+  top_p: 0.95
+  top_k: 0
+  max_new_tokens: 768
+  micro_batch_size: 2
+
+execution:
+  timeout_seconds: 5.0
+  max_rows: 10000
+
+screening:
+  num_generations: 4
+  executable: 0.10
+  table_f1: 0.10
+  column_f1: 0.15
+  column_count_match: 0.05
+  row_count_match: 0.05
+  result_jaccard: 0.15
+  incorrect_cap: 0.55
+
+grpo:
+  num_generations: 8
+  learning_rate: 1.0e-6
+  weight_decay: 0.0
+  beta1: 0.9
+  beta2: 0.999
+  adam_epsilon: 1.0e-8
+  warmup_ratio: 0.03
+  clip_epsilon: 0.2
+  max_grad_norm: 1.0
+  checkpoint_every_optimizer_steps: 200
+  smoke_optimizer_steps: 4
+
+evaluation:
+  official_timeout_seconds: 60.0
+  vote_timeout_seconds: 5.0
+  vote_max_rows: 10000
+  minimum_vote_support: 2
+  vote_seed_phase: 79
+
+baselines:
+  zero_shot_v1_ex: 44.07
+  sft_v1_ex: 49.74
+  grpo_v1_ex: 52.09

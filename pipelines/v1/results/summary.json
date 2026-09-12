@@ -1,0 +1,13 @@
+{
+  "zero_shot": {
+    "overall_ex": 44.07
+  },
+  "sft": {
+    "overall_ex": 49.74,
+    "gain_over_zero_shot": 5.67
+  },
+  "grpo": {
+    "overall_ex": 52.09,
+    "gain_over_sft": 2.35
+  }
+}

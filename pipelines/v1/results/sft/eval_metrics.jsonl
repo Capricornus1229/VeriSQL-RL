@@ -1,0 +1,2 @@
+{"epoch": 1, "global_step": 376, "validation_loss": 0.20307882276771044, "validation_perplexity": 1.2251690356558975, "validation_supervised_tokens": 31597, "validation_duration_seconds": 22.685607796069235, "is_best": true}
+{"epoch": 2, "global_step": 752, "validation_loss": 0.20838374152115388, "validation_perplexity": 1.2316857278277324, "validation_supervised_tokens": 31597, "validation_duration_seconds": 22.672090417006984, "is_best": false}

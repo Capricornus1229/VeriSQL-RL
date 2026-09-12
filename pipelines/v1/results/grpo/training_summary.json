@@ -1,0 +1,97 @@
+{
+  "status": "completed",
+  "screening": {
+    "source_train_samples": 6013,
+    "prefilter_excluded_count": 74,
+    "prefilter_exclusion_reasons": {
+      "gold_report_row_limit": 71,
+      "gold_report_timeout": 2,
+      "gold_report_timeout_limit": 1
+    },
+    "screen_candidate_count": 5939,
+    "runtime_eligible_count": 5939,
+    "runtime_excluded_count": 0,
+    "pass_at_4_buckets": {
+      "0": 1418,
+      "1": 846,
+      "2": 950,
+      "3": 1268,
+      "4": 1457
+    },
+    "mixed_prompt_count": 3064
+  },
+  "training": {
+    "status": "completed",
+    "mixed_prompt_count": 3064,
+    "ordered_prompt_count": 3064,
+    "duplicated_last_prompt": false,
+    "processed_global_prompt_pairs": 1532,
+    "optimizer_steps": 1094,
+    "zero_signal_local_group_count": 1597,
+    "zero_signal_local_group_rate": 52.12,
+    "globally_skipped_optimizer_step_count": 438,
+    "generated_completion_count": 12256,
+    "truncated_completion_count": 0,
+    "duration_seconds": 8011.974134556949,
+    "final_adapter": "pipelines/v1/runs/grpo/model/final_adapter"
+  },
+  "internal_validation_before": {
+    "label": "internal_validation_before",
+    "sample_count": 588,
+    "official_ex": 63.1,
+    "executable_rate": 95.92,
+    "format_compliance_rate": 100.0,
+    "gold_failure_count": 0,
+    "prediction_timeout_count": 0
+  },
+  "internal_validation_after": {
+    "label": "internal_validation_after",
+    "sample_count": 588,
+    "official_ex": 64.97,
+    "executable_rate": 97.28,
+    "format_compliance_rate": 99.83,
+    "gold_failure_count": 0,
+    "prediction_timeout_count": 0
+  },
+  "internal_validation_ex_delta": 1.87,
+  "dev_metrics": {
+    "run_name": "qwen3_8b_bird_grpo",
+    "dataset": "bird_sql_dev_20251106",
+    "total": 1534,
+    "overall_ex": 52.09,
+    "simple_ex": 62.44,
+    "moderate_ex": 45.6,
+    "challenging_ex": 25.97,
+    "executable_rate": 90.74,
+    "format_compliance_rate": 99.87,
+    "timeout_count": 2,
+    "syntax_error_count": 35,
+    "missing_table_count": 0,
+    "missing_column_count": 101
+  },
+  "sft_baseline_dev_metrics": {
+    "run_name": "qwen3_8b_bird_sft",
+    "dataset": "bird_sql_dev_20251106",
+    "total": 1534,
+    "overall_ex": 49.74,
+    "simple_ex": 60.12,
+    "moderate_ex": 42.89,
+    "challenging_ex": 24.24,
+    "executable_rate": 87.74,
+    "format_compliance_rate": 99.67,
+    "timeout_count": 0,
+    "syntax_error_count": 35,
+    "missing_table_count": 0,
+    "missing_column_count": 148
+  },
+  "dev_ex_delta_from_sft": 2.35,
+  "parameter_summary": {
+    "total_parameters": 8278029312,
+    "trainable_parameters": 87293952,
+    "trainable_ratio": 1.0545257658541618
+  },
+  "peak_memory_gb_per_process": [
+    25.223,
+    25.255
+  ]
+}

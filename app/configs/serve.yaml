@@ -1,0 +1,33 @@
+app:
+  title: VeriSQL Studio
+  host: 127.0.0.1
+  port: 8000
+  max_concurrent_queries: 2
+  request_log_path: app/runtime/requests.jsonl
+model:
+  base_model_path: model/Qwen3-8B
+  adapter_path: pipelines/v2/runs/grpo/best_adapter
+  tokenizer_path: model/Qwen3-8B
+  served_adapter_name: verisql-v2
+  vllm_base_url: http://127.0.0.1:8001/v1
+  vllm_health_url: http://127.0.0.1:8001/v1/models
+  max_model_len: 8192
+  max_lora_rank: 32
+  gpu_memory_utilization: 0.88
+  model_gpu: 0
+  request_timeout_seconds: 180
+paths:
+  train_schema_catalog: data/interim/schema_catalog_train.json
+  dev_schema_catalog: data/interim/schema_catalog_dev.json
+  train_database_root: data/raw/databases/train
+  dev_database_root: data/raw/databases/dev
+  grounding_index: pipelines/v2/artifacts/grounding/value_index.sqlite
+  demo_queries: app/examples/demo_queries.json
+grounding: {top_columns: 8, values_per_column: 3}
+generation:
+  enable_thinking: true
+  max_new_tokens: 768
+  fast: {temperature: 0.0, top_p: 1.0, top_k: 0, candidates: 1}
+  accurate: {sampled_candidates: 7, temperature: 0.8, top_p: 0.95, top_k: 0, seed: 42}
+execution: {timeout_seconds: 5.0, vote_max_rows: 10000, display_max_rows: 200, minimum_vote_support: 2}
+frontend: {dev_origin: http://localhost:5173}

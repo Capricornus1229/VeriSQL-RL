@@ -1,0 +1,1 @@
+import {Database} from 'lucide-react'; export default function EmptyState({title='No rows returned',message='The query executed successfully but returned an empty result.'}:{title?:string;message?:string}){return <div className="empty"><Database size={22}/><b>{title}</b><span>{message}</span></div>}
