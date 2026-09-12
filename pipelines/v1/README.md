@@ -48,7 +48,7 @@ flowchart LR
     C --> D[V1 Prompt 数据]
     D --> E[Qwen3-8B Zero-shot]
     D --> F[completion-only LoRA SFT]
-    F --> G[pass@4 训练样本筛选]
+    F --> G["pass@4 训练样本筛选"]
     G --> H[在线 GRPO]
     E --> I[完整 Dev EX]
     F --> I

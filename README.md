@@ -81,7 +81,7 @@ flowchart LR
     I --> J[混合困难样本筛选]
     J --> K[Exact-only GRPO]
     K --> L[Fast：单次 greedy]
-    K --> M[Accurate：pass@8 执行投票]
+    K --> M["Accurate：pass@8 执行投票"]
     L --> N[vLLM + FastAPI + React]
     M --> N
 ```

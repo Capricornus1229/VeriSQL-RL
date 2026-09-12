@@ -69,10 +69,10 @@ flowchart LR
     B --> C[Question + Evidence Grounding]
     C --> D[14B Teacher Reasoning]
     D --> E[8B Reasoning LoRA SFT]
-    E --> F[pass@4 混合困难样本筛选]
+    E --> F["pass@4 混合困难样本筛选"]
     F --> G[在线 Exact-only GRPO]
     G --> H[Fast：单次 greedy]
-    G --> I[Accurate：pass@8 执行投票]
+    G --> I["Accurate：pass@8 执行投票"]
 ```
 
 ## 核心设计
