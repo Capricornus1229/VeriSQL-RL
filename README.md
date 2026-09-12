@@ -11,6 +11,7 @@
   <img src="https://img.shields.io/badge/Hugging%20Face-4%20LoRA%20Adapters-FFD21E" alt="Hugging Face Adapter Family" />
   </a>
 </p>
+
 VeriSQL-RL 是一套基于 **Qwen3-8B、BIRD-SQL 与 SQLite** 的完整大模型后训练与在线部署项目。系统从原始数据库和 Text-to-SQL 标注出发，打通数据准备、Schema 建模、Gold SQL 执行审计、completion-only LoRA SFT、在线执行奖励 GRPO、数据库值 Grounding、Teacher Reasoning、困难样本筛选、pass@8 执行投票，以及 vLLM + FastAPI + React 服务化部署。
 
 项目保留两条可复现流水线：
